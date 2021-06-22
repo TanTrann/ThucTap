@@ -1412,3 +1412,52 @@ a:focus {
         text-align: center;
     }
 }
+
+.btn{
+
+    background: #dae5f5;
+    border: 0 none;
+    border-radius: 0;
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 25px;
+
+}
+.single-products {
+    height: 350px;
+    margin: 10px 10px;
+    position: relative;
+    text-align: center;
+    width: 400px;
+    margin-right: 30px;
+    float: left;
+}
+
+#price {
+    font-size: 30px;
+    color: red;
+}
+
+.name{
+    font-style: bold;
+    padding-top: 50px;
+}
+
+.chitiet{
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1d2434;
+    background: none;
+    border: 2px solid #1d2434;
+    border-radius: 0;
+    transition: .3s;
+}
+
+.chitiet:hover {
+    color: #9CB6ED;
+    background: #1d2434;
+}
+}

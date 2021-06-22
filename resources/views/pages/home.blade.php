@@ -11,6 +11,8 @@
                         <ol class="carousel-indicators">
                             <li data-target="#mycarousel" data-slide-to="1" class="" style="width: 100%;"></li>
                             <li data-target="#mycarousel" data-slide-to="2" class="" style="width: 100%"></li>
+                            <li data-target="#mycarousel" data-slide-to="3" class="" style="width: 100%"></li>
+
                         </ol>
                         <!--Hết tạo chỉ số-->
 
@@ -22,8 +24,8 @@
                             <img class="" src="public\frontend\img\picture1.png" style="width: 100%">
                             <!--Cho thêm hiện thị thông tin-->
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Tiêu đề Slide 1</h5>
-                                <p>Dòng text chú thích cho Slide 1</p>
+                                <h5></h5>
+                                <p></p>
                             </div>
                         </div>
 
@@ -77,49 +79,84 @@
 
         <!-- Service Start -->
         <div class="service">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Our Salon Services</p>
-                    <h2>Best Salon and Barber Services for You</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/service-1.jpg" alt="Image">
+            <div class="container" >
+                <!-- Row start -->
+                    
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs  tabs" role="tablist">
+                            <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center ">
+                                <a class="nav-link active" data-toggle="tab" href="#home1" role="tab">Gói cước</a>
+                            </li>
+                            <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center">
+                                <a class="nav-link" data-toggle="tab" href="#profile1" role="tab">Gói data</a>
+                            </li>
+                            <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center">
+                                <a class="nav-link" data-toggle="tab" href="#messages1" role="tab">Dich vu</a>
+                            </li>
+                           
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs card-block">
+                            <div class="tab-pane active" id="home1" role="tabpanel">
+                                  @foreach($all_service as $key => $serv)
+                            <div class="single-products">
+                                        
+                                            <form>
+                                                @csrf
+                                        <h2 class="name">{{$serv->service_name}}</h2>       
+                                        <p id="price">{{number_format($serv->service_price,0,',','.').' '.'VNĐ'}}</p> 
+                                        <p>{{$serv->service_content}}</p>
+                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}" name="add-to-cart" >                    
+                                            
+                                        </div>
+                                            </form>
+                                    @endforeach
+                                  
                             </div>
-                            <h3>Hair Cut</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                            </p>
-                            <a class="btn" href="">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/service-2.jpg" alt="Image">
+                            <div class="tab-pane" id="profile1" role="tabpanel">
+                                <div class="table-responsive" style="text-align: center;">
+                                                <table class="table" style="">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Username</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Jacob</td>
+                                                            <td>Thornton</td>
+                                                            <td>@fat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td>Larry</td>
+                                                            <td>the Bird</td>
+                                                            <td>@twitter</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                             </div>
-                            <h3>Beard Style</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                            </p>
-                            <a class="btn" href="">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/service-3.jpg" alt="Image">
+                            <div class="tab-pane" id="messages1" role="tabpanel">
+                                <p class="m-0">3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
                             </div>
-                            <h3>Color & Wash</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                            </p>
-                            <a class="btn" href="">Learn More</a>
+                            <div class="tab-pane" id="settings1" role="tabpanel">
+                                <p class="m-0">4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                            </div>
                         </div>
+                       
                     </div>
-                </div>
             </div>
         </div>
         <!-- Service End -->

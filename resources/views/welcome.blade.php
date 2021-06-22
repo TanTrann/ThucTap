@@ -66,7 +66,7 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="{{url('/')}}" class="nav-item nav-link  ">Trang Chủ</a>
+                        <a href="{{url('/')}}" class="nav-item nav-link">Trang Chủ</a>
                         <a href="{{url('/gioi-thieu')}}" class="nav-item nav-link">Giới thiệu</a>
                         <a href="{{url('/service')}}" class="nav-item nav-link">Dịch vụ</a>
                         <div class="nav-item dropdown">
