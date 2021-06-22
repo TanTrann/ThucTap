@@ -24,7 +24,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: #D5B981;
+    color: #9CB6ED;
     outline: none;
     text-decoration: none;
 }
@@ -41,7 +41,7 @@ a:focus {
 .back-to-top {
     position: fixed;
     display: none;
-    background: #D5B981;
+    background: #9CB6ED;
     width: 44px;
     height: 44px;
     text-align: center;
@@ -58,7 +58,7 @@ a:focus {
 }
 
 .back-to-top:hover i {
-    color: #D5B981;
+    color: #9CB6ED;
 }
 
 .back-to-top i {
@@ -141,7 +141,7 @@ a:focus {
 }
 
 .top-bar .social a:hover {
-    color: #D5B981;
+    color: #9CB6ED;
     background: #ffffff;
 }
 
@@ -309,7 +309,7 @@ a:focus {
 }
 
 .hero .hero-text .btn:hover {
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
 }
 
@@ -480,7 +480,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 150px 0 90px 0;
     text-align: center;
-    background: #D5B981;
+    background: #9CB6ED;
 }
 
 .page-header h2 {
@@ -628,7 +628,7 @@ a:focus {
 }
 
 .about .about-text a.btn:hover {
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
 }
 
@@ -708,7 +708,7 @@ a:focus {
 }
 
 .service .service-item:hover a.btn {
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
     border-color: #1d2434;
 }
@@ -736,7 +736,7 @@ a:focus {
 }
 
 .price .price-item:hover {
-    background: #D5B981;
+    background: #9CB6ED;
 }
 
 .price .price-img {
@@ -839,11 +839,11 @@ a:focus {
 }
 
 .team .team-item:hover .team-text {
-    background: #D5B981;
+    background: #9CB6ED;
 }
 
 .team .team-item:hover .team-img::after {
-    border-color: #D5B981;
+    border-color: #9CB6ED;
 }
 
 
@@ -892,7 +892,7 @@ a:focus {
 }
 
 .testimonial .testimonial-item h2 {
-    color: #D5B981;
+    color: #9CB6ED;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 5px;
@@ -918,7 +918,7 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
     font-size: 22px;
     transition: .3s;
@@ -931,7 +931,7 @@ a:focus {
 .testimonial .owl-nav .owl-prev:hover,
 .testimonial .owl-nav .owl-next:hover {
     color: #1d2434;
-    background: #D5B981;
+    background: #9CB6ED;
 }
 
 
@@ -1033,7 +1033,7 @@ a:focus {
 }
 
 .blog .blog-item a.btn:hover {
-    color: #D5B981;
+    color: #9CB6ED;
 }
 
 .blog .owl-nav {
@@ -1050,7 +1050,7 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
     font-size: 22px;
     transition: .3s;
@@ -1059,7 +1059,7 @@ a:focus {
 .blog .owl-nav .owl-prev:hover,
 .blog .owl-nav .owl-next:hover {
     color: #1d2434;
-    background: #D5B981;
+    background: #9CB6ED;
 }
 
 .blog .pagination .page-link {
@@ -1070,7 +1070,7 @@ a:focus {
 
 .blog .pagination .page-link:hover,
 .blog .pagination .page-item.active .page-link {
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
 }
 
@@ -1113,7 +1113,7 @@ a:focus {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
     background: #1d2434;
-    color: #D5B981;
+    color: #9CB6ED;
 }
 
 .portfolio .portfolio-item {
@@ -1146,7 +1146,7 @@ a:focus {
 }
 
 .portfolio .portfolio-wrap:hover a::after {
-    border-color: #D5B981;
+    border-color: #9CB6ED;
 }
 
 .portfolio img {
@@ -1183,7 +1183,7 @@ a:focus {
     background: none;
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid #D5B981;
+    border-bottom: 1px solid #9CB6ED;
 }
 
 .contact .contact-form textarea {
@@ -1192,7 +1192,7 @@ a:focus {
     background: none;
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid #D5B981;;
+    border-bottom: 1px solid #9CB6ED;;
 }
 
 .contact .contact-form .btn {
@@ -1200,16 +1200,16 @@ a:focus {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #D5B981;
+    color: #9CB6ED;
     background: none;
-    border: 2px solid #D5B981;
+    border: 2px solid #9CB6ED;
     border-radius: 0;
     transition: .3s;
 }
 
 .contact .contact-form .btn:hover {
     color: #1d2434;
-    background: #D5B981;
+    background: #9CB6ED;
 }
 
 .contact .help-block ul {
@@ -1296,7 +1296,7 @@ a:focus {
     margin-bottom: 30px;
     font-size: 22px;
     font-weight: 700;
-    color: #D5B981;
+    color: #9CB6ED;
 }
 
 .footer .footer-link a {
@@ -1315,7 +1315,7 @@ a:focus {
 }
 
 .footer .footer-link a:hover {
-    color: #D5B981;
+    color: #9CB6ED;
     letter-spacing: 1px;
 }
 
@@ -1335,7 +1335,7 @@ a:focus {
 .footer .footer-social a i {
     margin-right: 15px;
     font-size: 18px;
-    color: #D5B981;
+    color: #9CB6ED;
 }
 
 .footer .footer-social a:last-child i {
@@ -1373,7 +1373,7 @@ a:focus {
 }
 
 .footer .footer-newsletter .btn:hover {
-    color: #D5B981;
+    color: #9CB6ED;
     background: #1d2434;
 }
 
@@ -1402,7 +1402,7 @@ a:focus {
 }
 
 .footer .copyright p a:hover {
-    color: #D5B981;
+    color: #9CB6ED;
 }
 
 @media (max-width: 767.98px) {

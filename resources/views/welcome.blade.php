@@ -66,7 +66,7 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="{{url('/')}}" class="nav-item nav-link active">Trang Chủ</a>
+                        <a href="{{url('/')}}" class="nav-item nav-link  ">Trang Chủ</a>
                         <a href="{{url('/gioi-thieu')}}" class="nav-item nav-link">Giới thiệu</a>
                         <a href="{{url('/service')}}" class="nav-item nav-link">Dịch vụ</a>
                         <div class="nav-item dropdown">
@@ -87,52 +87,7 @@
         <!-- Nav Bar End -->
 
 
-        <!-- Slide Start -->
-        <div class="hero">
-                <div class="row">
-                    <div id="mycarousel" class="carousel slide" data-ride="carousel" style="width: 90%;">
-
-                        <!--Cho hiện thị chỉ số nếu muốn-->
-                        <ol class="carousel-indicators">
-                            <li data-target="#mycarousel" data-slide-to="1" class="" style="width: 100%;"></li>
-                            <li data-target="#mycarousel" data-slide-to="2" class="" style="width: 100%"></li>
-                        </ol>
-                        <!--Hết tạo chỉ số-->
-
-                    <!--Các slide bên trong carousel-inner-->
-                    <div class="carousel-inner">
-
-                        <!--Slide 1 thiết lập hiện thị đầu tiên .active-->
-                        <div class="carousel-item active">
-                            <img class="" src="public\frontend\img\picture1.png" style="width: 100%">
-                            <!--Cho thêm hiện thị thông tin-->
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Tiêu đề Slide 1</h5>
-                                <p>Dòng text chú thích cho Slide 1</p>
-                            </div>
-                        </div>
-
-                        <!--Slide 2-->
-                        <div class="carousel-item">
-                            <img class="" src="public\frontend\img\picture2.png" style="width: 100%">
-                        </div>
-                        <!--Slide 3-->
-                        <div class="carousel-item">
-                            <img class="" src="public\frontend\img\picture3.png" style="width: 100%">
-                        </div>
-                    </div>
-                    
-
-
-                    <!--Cho thêm khiển chuyển slide trước, sau nếu muốn-->
-                        <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span></a>
-                        <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
-                    <!--Hết tạo điều khiển chuyển Slide--> 
-        
-                </div>  
-            </div>
-        </div>
-       @yield('content ')
+       @yield('content')
         <!-- Footer Start -->
         <div class="footer">
             <div class="container">
@@ -180,16 +135,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container copyright">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <!-- Footer End -->
 

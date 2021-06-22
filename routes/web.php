@@ -61,3 +61,7 @@ Route::get('/delete-product/{product_id}','App\Http\Controllers\productControlle
 
 Route::get('/unactive-product/{product_id}','App\Http\Controllers\productController@unactive_product');
 Route::get('/active-product/{product_id}','App\Http\Controllers\productController@active_product');
+
+
+
+

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>GURU Able - Free Lite Admin Template </title>
+    <title>Trang admin</title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -151,11 +151,16 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="public/backend/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                    <span><?php
+    $name = Session::get('admin_name');
+    if ($name){
+        echo $name;
+    }
+    ?></span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
-                                    <li>
+                                    {{-- <li>
                                         <a href="#!">
                                             <i class="ti-settings"></i> Settings
                                         </a>
@@ -174,9 +179,9 @@
                                         <a href="#">
                                             <i class="ti-lock"></i> Lock Screen
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
-                                        <a href="auth-normal-sign-in.html">
+                                        <a href="{{URL::to('/logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
