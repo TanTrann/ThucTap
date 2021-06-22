@@ -48,3 +48,16 @@ Route::get('/delete-brand/{brand_id}','App\Http\Controllers\BrandController@dele
 
 Route::get('/unactive-brand/{brand_id}','App\Http\Controllers\BrandController@unactive_brand');
 Route::get('/active-brand/{brand_id}','App\Http\Controllers\BrandController@active_brand');
+
+
+
+//backend + Product
+Route::get('/add-product','App\Http\Controllers\productController@add_product');
+Route::get('/all-product','App\Http\Controllers\productController@all_product');
+Route::get('/edit-product/{product_id}','App\Http\Controllers\productController@edit_product');
+Route::post('/save-product','App\Http\Controllers\productController@save_product');
+Route::post('/update-product/{product_id}','App\Http\Controllers\productController@update_product');
+Route::get('/delete-product/{product_id}','App\Http\Controllers\productController@delete_product');
+
+Route::get('/unactive-product/{product_id}','App\Http\Controllers\productController@unactive_product');
+Route::get('/active-product/{product_id}','App\Http\Controllers\productController@active_product');

@@ -58,8 +58,8 @@
                                         <label class="col-sm-2 col-form-label">Trạng thái</label>
                                         <div class="col-sm-3">
                                             <select class="form-control" name="category_status">
-                                                <option value="0">Ẩn</option>
-                                                <option value="1">Hiện</option>
+                                                <option value="0">Hiển thị</option>
+                                                <option value="1">Ẩn</option>
                                                 
                                             </select>
                                         </div>
