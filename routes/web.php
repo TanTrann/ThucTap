@@ -62,6 +62,16 @@ Route::get('/delete-product/{product_id}','App\Http\Controllers\productControlle
 Route::get('/unactive-product/{product_id}','App\Http\Controllers\productController@unactive_product');
 Route::get('/active-product/{product_id}','App\Http\Controllers\productController@active_product');
 
+//backend + service
+Route::get('/add-service','App\Http\Controllers\serviceController@add_service');
+Route::get('/all-service','App\Http\Controllers\serviceController@all_service');
+Route::get('/edit-service/{service_id}','App\Http\Controllers\serviceController@edit_service');
+Route::post('/save-service','App\Http\Controllers\serviceController@save_service');
+Route::post('/update-service/{service_id}','App\Http\Controllers\serviceController@update_service');
+Route::get('/delete-service/{service_id}','App\Http\Controllers\serviceController@delete_service');
+
+Route::get('/unactive-service/{service_id}','App\Http\Controllers\serviceController@unactive_service');
+Route::get('/active-service/{service_id}','App\Http\Controllers\serviceController@active_service');
 
 
 
