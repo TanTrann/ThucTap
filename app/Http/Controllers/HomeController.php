@@ -14,8 +14,9 @@ class HomeController extends Controller
   //trang chu
   public function index(){
    	$cate_product = DB::table('tbl_category')->orderby('category_id','desc')->get(); 
-	 $all_service = DB::table('tbl_service')->where('service_status','0')->orderby(DB::raw('RAND()'))->paginate(6); 
-	 return view('pages.home')->with('all_service',$all_service)->with('cate_product', $cate_product);
+	$all_service = DB::table('tbl_service')->where('service_status','0')->orderby(DB::raw('RAND()'))->get(); 
+	$all_data_service = DB::table('tbl_data_service')->where('data_service_status','0')->orderby(DB::raw('RAND()'))->get(); 
+	return view('pages.home')->with('all_service',$all_service)->with('cate_product', $cate_product)->with('all_data_service', $all_data_service);
    }
   
 }

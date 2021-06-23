@@ -36,7 +36,7 @@
                                 {{csrf_field()}}
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Tên sản phẩm</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" 
                                         placeholder="Tên sản phẩm" name="product_name">
                                     </div>
@@ -44,7 +44,7 @@
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Số lượng</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" 
                                         placeholder="Số lượng" name="product_quantity">
                                     </div>
@@ -52,7 +52,7 @@
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Giá sản phẩm</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" 
                                         placeholder="Giá sản phẩm" name="product_price">
                                     </div>
@@ -60,30 +60,28 @@
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Hình ảnh sản phẩm</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-9">
                                         <input type="file" class="form-control" name="product_image">
                                     </div>
                                  </div>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Mô tả sản phẩm</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" 
-                                        placeholder="Mô tả sản phẩm" name="product_desc">
-                                    </div>
+                                    <label  class="col-sm-3 col-form-label">Mô tả sản phẩm</label>
+                                    <div class="col-sm-9">
+                                    <textarea rows="8" class="form-control" name="product_desc" id="ckeditor1" placeholder="Mô tả sản phẩm"></textarea>
+                                </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nội dung sản phẩm</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" 
-                                        placeholder="Nội dung sản phẩm" name="product_content">
+                                    <div class="col-sm-9">
+                                        <textarea rows="8" class="form-control" name="product_desc" id="ckeditor2" placeholder="Mô tả sản phẩm"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Danh mục sản phẩm</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-9">
                                         <select name="product_cate" class="form-control input-sm m-bot15">
                                         @foreach($cate_product as $key => $cate)
                                             <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
@@ -95,7 +93,7 @@
 
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Thương hiệu sản phẩm</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-9">
                                         <select name="product_brand" class="form-control input-sm m-bot15">
                                         @foreach($brand_product as $key => $brand)
                                             <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>

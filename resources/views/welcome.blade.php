@@ -19,6 +19,7 @@
         <link href="{{asset('public/frontend/lib/animate/animate.min.css')}}" rel="stylesheet">
         <link href="{{asset('public/frontend/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('public/frontend/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+        
 
         <!-- Template Stylesheet -->
         <link href="{{asset('public/frontend/css/style.css')}}" rel="stylesheet">

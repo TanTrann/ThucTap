@@ -81,27 +81,31 @@
         <div class="service">
             <div class="container" >
                 <!-- Row start -->
-                    
+                    <H2>Dịch vụ di động</H2>
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs  tabs" role="tablist">
-                            <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center ">
-                                <a class="nav-link active" data-toggle="tab" href="#home1" role="tab">Gói cước</a>
+                            <li class="nav-item">
+                                                                        
+                             <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center ">
+                                <a class="nav-link active" data-toggle="tab" href="#home1" role="tab">Gói cước thoại</a>
                             </li>
+                           
                             <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center">
                                 <a class="nav-link" data-toggle="tab" href="#profile1" role="tab">Gói data</a>
                             </li>
                             <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center">
-                                <a class="nav-link" data-toggle="tab" href="#messages1" role="tab">Dich vu</a>
+                                <a class="nav-link" data-toggle="tab" href="#messages1" role="tab">Dich vu khác</a>
                             </li>
-                           
+                           </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content tabs card-block">
                             <div class="tab-pane active" id="home1" role="tabpanel">
-                                  @foreach($all_service as $key => $serv)
+                                  
                             <div class="single-products">
-                                        
+                                 <i class="fas fa-phone" style="font-size: 70px; padding: 40px"></i>
+                                        @foreach($all_service as $key => $serv)
                                             <form>
                                                 @csrf
                                         <h2 class="name">{{$serv->service_name}}</h2>       
@@ -109,53 +113,48 @@
                                         <p>{{$serv->service_content}}</p>
                                         <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}" name="add-to-cart" >                    
                                             
-                                        </div>
+                                        
                                             </form>
                                     @endforeach
-                                  
+                                </div>  
                             </div>
+
                             <div class="tab-pane" id="profile1" role="tabpanel">
-                                <div class="table-responsive" style="text-align: center;">
-                                                <table class="table" style="">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Username</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                <div class="single-products">
+                                        <i class="fas fa-wifi" style="font-size: 70px; padding: 40px"></i>
+                                            @foreach($all_data_service as $key => $data_serv)
+                                                <form>
+                                                    @csrf
+                                        <h2 class="name">{{$data_serv->data_service_name}}</h2>       
+                                        <p id="price">{{number_format($data_serv->data_service_price,0,',','.').' '.'VNĐ'}}</p> 
+                                        <p>{{$data_serv->data_service_content}}</p>
+                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}" name="add-to-cart" >                    
+                                            
+                                        
+                                                </form>
+                                    @endforeach
+                                </div> 
+                                
                             </div>
+                            
+                            
+                           
                             <div class="tab-pane" id="messages1" role="tabpanel">
-                                <p class="m-0">3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                <div class="single-products">
+                                        <i class="fas fa-wifi" style="font-size: 70px; padding: 40px"></i>
+                                            @foreach($all_data_service as $key => $data_serv)
+                                                <form>
+                                                    @csrf
+                                        <h2 class="name">{{$data_serv->data_service_name}}</h2>       
+                                        <p id="price">{{number_format($data_serv->data_service_price,0,',','.').' '.'VNĐ'}}</p> 
+                                        <p>{{$data_serv->data_service_content}}</p>
+                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}" name="add-to-cart" >                    
+                                            
+                                        
+                                                </form>
+                                    @endforeach
+                                </div> 
                             </div>
-                            <div class="tab-pane" id="settings1" role="tabpanel">
-                                <p class="m-0">4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
-                            </div>
-                        </div>
-                       
                     </div>
             </div>
         </div>

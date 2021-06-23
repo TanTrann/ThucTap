@@ -14,7 +14,7 @@
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Dịch vụ di động</h4>
+                        <h4>Gói cước thoại</h4>
                         <span> <?php
                              $message = Session::get('message');
                             if ($message){
@@ -58,17 +58,7 @@
                                     </div>
                                 </div> 
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Danh mục sản phẩm</label>
-                                    <div class="col-sm-5">
-                                        <select name="service_cate" class="form-control input-sm m-bot15">
-                                        @foreach($cate_service as $key => $cate)
-                                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
-                                        @endforeach
-                                            
-                                    </select>
-                                    </div>
-                                </div>
+                                
                                     
                                 <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Trạng thái</label>

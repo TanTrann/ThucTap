@@ -52,7 +52,7 @@
                                                             <th scope="row">{{$pro ->product_id}}</th>
                                                             <td>{{$pro ->product_name}}</td>
                                                             <td>{{$pro->product_quantity}}</td>
-                                                            <td>{{ number_format($pro->product_price,0,',','.') }}đ</td>
+                                                            <td>{{ number_format($pro->product_price,0,',','.') }}vnd  </td>
                                                             <td><img src="public/uploads/products/{{$pro->product_image }}" height="100" width="100"></td>
                                                             <td>{{ $pro->category_name }}</td>
                                                             <td>{{ $pro->brand_name }}</td>

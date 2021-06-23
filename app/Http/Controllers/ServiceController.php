@@ -36,7 +36,7 @@ public function save_service(Request $Request){
    		$data['service_name']= $Request->service_name;
    		$data['service_price']= $Request->service_price;
    		$data['service_content']= $Request->service_content;
-   		$data['category_id']= $Request->service_cate;
+   		
    		$data['service_status']= $Request->service_status;
 
 
@@ -47,7 +47,7 @@ public function save_service(Request $Request){
 public function all_service (){
         $this->AuthLogin();
         $all_service = DB::table('tbl_service')
-        ->join('tbl_category','tbl_category.category_id','=','tbl_service.category_id')
+        
         ->orderby('tbl_service.service_id','desc')->get();
         $manager_service  = view('admin.all_service')->with('all_service',$all_service);
         return view('admin_layout')->with('admin.all_service', $manager_service);
@@ -82,8 +82,8 @@ public function all_service (){
         $this->AuthLogin();
         $data = array();
         $data['service_name'] = $request->service_name;     
-        $data['service_desc'] = $request->service_desc;
-        $data['service_status'] = $request->service_status;
+        $data['service_content'] = $request->service_content;
+
         DB::table('tbl_service')->where('service_id',$service_id)->update($data);
         Session::put('message','Cập nhật thương hiệu sản phẩm thành công');
         return Redirect::to('all-service');

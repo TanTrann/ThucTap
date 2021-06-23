@@ -274,31 +274,10 @@
                                     </ul>
                                 </li>
 
-                                 <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Dịch vụ</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class=" ">
-                                            <a href="{{URL('/all-service')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Liệt kê</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="{{URL('/add-service')}} ">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Thêm dịch vụ</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                
 
-                                <li class="pcoded-hasmenu">
+                                
+                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
                                         <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Sản phẩm</span>
@@ -320,69 +299,56 @@
                                             </a>
                                         </li>
                                     </ul>
+
                                 </li>
 
+
                             </ul>
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Gói cước di động</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li>
-                                    <a href="form-elements-component.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="bs-basic-table.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
                                 
-                            </ul>
-
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li>
-                                    <a href="chart.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="map-google.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Pages</span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Gói cước data</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="auth-normal-sign-in.html">
+                                            <a href="{{URL('/all-data-service')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Login</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Liệt kê</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="auth-sign-up.html">
+                                            <a href="{{URL('/add-data-service')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Register</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Thêm gói cước</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                    </ul>
+                                </li>
+
+                                 <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Gói cước thoại</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="sample-page.html">
+                                            <a href="{{URL('/all-service')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Liệt kê</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{URL('/add-service')}} ">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Thêm gói cước</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -391,50 +357,61 @@
                                 
                             </ul>
 
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Other</div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Đáu giá</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="pcoded-hasmenu ">
+                                
+                                     <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Menu Levels</span>
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Quản lí đáu giá</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class="">
-                                            <a href="javascript:void(0)">
+                                        <li class=" ">
+                                            <a href="{{URL('/all-service')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Menu Level 2.1</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Liệt kê</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
-                                        </li>
-                                        <li class="pcoded-hasmenu ">
-                                            <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Menu Level 2.2</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class="">
-                                                    <a href="javascript:void(0)">
-                                                        <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Menu Level 3.1</span>
-                                                        <span class="pcoded-mcaret"></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
                                         <li class="">
-                                            <a href="javascript:void(0)">
+                                            <a href="{{URL('/add-service')}} ">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-23">Menu Level 2.3</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Thêm sản phẩm</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
                                     </ul>
-                                </li>
+                                
                             </ul>
-                        </div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Tin tức</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                                     <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Quản lí tin tức</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="{{URL('/all-service')}}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Liệt kê</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{URL('/add-service')}} ">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Thêm tin tức</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                            
+
+                            
                     </nav>
                     <div class="pcoded-content">
                         @yield('admin_content');
@@ -505,6 +482,7 @@
 <script src="{{asset('public/backend/assets/js/pcoded.min.js')}}"></script>
 <script src="{{asset('public/backend/assets/js/demo-12.js')}}"></script>
 <script src="{{asset('public/backend/assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
 <script>
 var $window = $(window);
 var nav = $('.fixed-button');
@@ -516,6 +494,19 @@ var nav = $('.fixed-button');
          nav.removeClass('active');
      }
  });
+</script>
+ <script  type="text/javascript">
+       // Replace the <textarea id="editor1"> with a CKEditor
+       // instance, using default configuration.
+  
+        CKEDITOR.replace('ckeditor');
+        CKEDITOR.replace('ckeditor1');
+        CKEDITOR.replace('ckeditor2');
+
+            
+
+     
+    
 </script>
 </body>
 

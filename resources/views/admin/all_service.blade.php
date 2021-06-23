@@ -10,7 +10,7 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-table bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>Liệt kê dịch vụ</h4>
+                                                        <h4>Liệt kê gói cước thoại</h4>
                                                         <span> <?php
                                                                  $message = Session::get('message');
                                                                 if ($message){
@@ -61,7 +61,7 @@
                                                             <th>Giá tiền</th>
                                                             <th>Trạng thái</th>
                                                             <th>Chi tiết</th>
-                                                            <th>Danh mục</th>
+                                                            
                                                             <th colspan="2"> Quản lí</th>
                                                         </tr>
                                                     </thead>
@@ -70,7 +70,7 @@
                                                         <tr>
                                                             <th scope="row">{{$serv ->service_id}}</th>
                                                             <td>{{$serv ->service_name}}</td>
-                                                            <td>{{$serv ->service_price }}</td>
+                                                            <td>{{number_format($serv->service_price ,0,',','.').' '.'VNĐ'}} </td>
                                                             <td><span class="text-ellipsis">
                  <?php   
                  if ($serv->service_status==0){
@@ -93,7 +93,7 @@
             <td>
               {{$serv ->service_content}}  
             </td>
-            <td>{{ $serv->category_name }}</td>
+           
             <td style="text-align: center; width: 15px;">
               <a href="{{URL::to('/edit-service/'.$serv->service_id)}}" class="active styling-edit" ui-toggle-class=""><i class="ti-pencil" style="color: green;"></i></a>
             </td>

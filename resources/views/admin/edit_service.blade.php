@@ -14,7 +14,7 @@
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Chỉnh sửa dịch vụ </h4>
+                        <h4>Chỉnh sửa gói cước thoại </h4>
                         <span> <?php
                              $message = Session::get('message');
                             if ($message){
@@ -61,16 +61,12 @@
                                                 <div class="col-sm-10">
                                                     <textarea rows="1" cols="5" class="form-control"
                                                     name="service_price" >{{$edit_value->service_price}}</textarea>
+
+                                                    <p id="price">{{number_format($serv->service_price,0,',','.').' '.'VNĐ'}}</p> 
                                                 </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Danh mục</label>
-                                                <div class="col-sm-10">
-                                                    <textarea rows="1" cols="5" class="form-control"
-                                                    name="category_id" >{{$edit_value->category_id}}</textarea>
-                                                </div>
-                                    </div>
+                                   
                                     
 
                                     <button class="btn btn-grd-success" style="float: right;" name="save-service">Cập nhật</button>

@@ -1425,13 +1425,15 @@ a:focus {
 
 }
 .single-products {
+    padding: 0 50px 50px 50px ;
+    border: 2px 
     height: 350px;
     margin: 10px 10px;
     position: relative;
     text-align: center;
     width: 400px;
     margin-right: 30px;
-    float: left;
+    border: 1px solid ;
 }
 
 #price {
@@ -1440,8 +1442,7 @@ a:focus {
 }
 
 .name{
-    font-style: bold;
-    padding-top: 50px;
+    padding-top: 5px;
 }
 
 .chitiet{
@@ -1460,4 +1461,5 @@ a:focus {
     color: #9CB6ED;
     background: #1d2434;
 }
-}
+
+

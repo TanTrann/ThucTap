@@ -63,15 +63,24 @@ Route::get('/unactive-product/{product_id}','App\Http\Controllers\productControl
 Route::get('/active-product/{product_id}','App\Http\Controllers\productController@active_product');
 
 //backend + service
-Route::get('/add-service','App\Http\Controllers\serviceController@add_service');
-Route::get('/all-service','App\Http\Controllers\serviceController@all_service');
-Route::get('/edit-service/{service_id}','App\Http\Controllers\serviceController@edit_service');
-Route::post('/save-service','App\Http\Controllers\serviceController@save_service');
-Route::post('/update-service/{service_id}','App\Http\Controllers\serviceController@update_service');
-Route::get('/delete-service/{service_id}','App\Http\Controllers\serviceController@delete_service');
+Route::get('/add-service','App\Http\Controllers\ServiceController@add_service');
+Route::get('/all-service','App\Http\Controllers\ServiceController@all_service');
+Route::get('/edit-service/{service_id}','App\Http\Controllers\ServiceController@edit_service');
+Route::post('/save-service','App\Http\Controllers\ServiceController@save_service');
+Route::post('/update-service/{service_id}','App\Http\Controllers\ServiceController@update_service');
+Route::get('/delete-service/{service_id}','App\Http\Controllers\ServiceController@delete_service');
 
-Route::get('/unactive-service/{service_id}','App\Http\Controllers\serviceController@unactive_service');
-Route::get('/active-service/{service_id}','App\Http\Controllers\serviceController@active_service');
+Route::get('/unactive-service/{service_id}','App\Http\Controllers\ServiceController@unactive_service');
+Route::get('/active-service/{service_id}','App\Http\Controllers\ServiceController@active_service');
 
+//backend + data_service
+Route::get('/add-data-service','App\Http\Controllers\DataServiceController@add_data_service');
+Route::get('/all-data-service','App\Http\Controllers\DataServiceController@all_data_service');
+Route::get('/edit-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@edit_data_service');
+Route::post('/save-data-service','App\Http\Controllers\DataServiceController@save_data_service');
+Route::post('/update-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@update_data_service');
+Route::get('/delete-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@delete_data_service');
 
+Route::get('/unactive-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@unactive_data_service');
+Route::get('/active-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@active_data_service');
 
