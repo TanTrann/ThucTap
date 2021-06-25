@@ -101,22 +101,25 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content tabs card-block">
-                            <div class="tab-pane active" id="home1" role="tabpanel">
-                                  
-                            <div class="single-products">
-                                 <i class="fas fa-phone" style="font-size: 70px; padding: 40px"></i>
-                                        @foreach($all_service as $key => $serv)
-                                            <form>
-                                                @csrf
-                                        <h2 class="name">{{$serv->service_name}}</h2>       
-                                        <p id="price">{{number_format($serv->service_price,0,',','.').' '.'VNĐ'}}</p> 
-                                        <p>{{$serv->service_content}}</p>
-                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}" name="add-to-cart" >                    
+                           
+
+                             <div class="tab-pane" id="messages1" role="tabpanel" >
+                                <div class="single-products">
+                                    @foreach($all_call_service as $key => $call_serv)
+                                        <i class="fas fa-wifi" style="font-size: 70px; padding: 40px"></i>
+                                            
+                                                <form>
+                                                    @csrf
+                                        <h2 class="name">{{$call_serv->call_service_name}}</h2>       
+                                        <p id="price">{{number_format($call_serv->call_service_price,0,',','.').' '.'VNĐ'}}</p> 
+                                        <p>{{$call_serv->call_service_content}}</p>
+                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$call_serv->call_service_id}}" name="chi-tiet" >                    
                                             
                                         
-                                            </form>
-                                    @endforeach
-                                </div>  
+                                                </form>
+                                   
+                                </div> 
+                                 @endforeach
                             </div>
 
                             <div class="tab-pane" id="profile1" role="tabpanel">
@@ -128,7 +131,7 @@
                                         <h2 class="name">{{$data_serv->data_service_name}}</h2>       
                                         <p id="price">{{number_format($data_serv->data_service_price,0,',','.').' '.'VNĐ'}}</p> 
                                         <p>{{$data_serv->data_service_content}}</p>
-                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}" name="add-to-cart" >                    
+                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}" name="chi-tiet" >                    
                                             
                                         
                                                 </form>
@@ -136,25 +139,35 @@
                                 </div> 
                                 
                             </div>
-                            
+                             <div class="tab-pane active" id="home1" role="tabpanel">
+                                   <div class="owl-carousel blog-carousel">
+                      @foreach($all_service as $key => $serv)
+                    <div class="">
+                        <div class="">
+                             <img src="public/uploads/service/{{ $serv->service_images }}" style="width: 215px; padding: 18px;">
+                        </div>
+                        
+                        <div class="blog-text">
+                             <form>
+                                                @csrf
+                                        
+                                        <h2 class="name">{{$serv->service_name}}</h2>     
+                            <p>{{$serv->service_content}}</p>
+                            <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}"  name="chi-tiet" > 
+                        </div>
+                    </div>
+                </form>
+                    @endforeach
+                    
+                    
+                    
+                    
+                    
+                </div>
+                            </div>
                             
                            
-                            <div class="tab-pane" id="messages1" role="tabpanel">
-                                <div class="single-products">
-                                        <i class="fas fa-wifi" style="font-size: 70px; padding: 40px"></i>
-                                            @foreach($all_data_service as $key => $data_serv)
-                                                <form>
-                                                    @csrf
-                                        <h2 class="name">{{$data_serv->data_service_name}}</h2>       
-                                        <p id="price">{{number_format($data_serv->data_service_price,0,',','.').' '.'VNĐ'}}</p> 
-                                        <p>{{$data_serv->data_service_content}}</p>
-                                        <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}" name="add-to-cart" >                    
-                                            
-                                        
-                                                </form>
-                                    @endforeach
-                                </div> 
-                            </div>
+                           
                     </div>
             </div>
         </div>

@@ -88,24 +88,42 @@ public function all_product (){
         return Redirect::to('all-product');
     }
 
-     public function edit_product($product_id){
-        $this->AuthLogin();
-        $edit_product = DB::table('tbl_product')->where('product_id',$product_id)->get();
+      public function edit_product($product_id){
+      $this->AuthLogin();
+         $cate_product = DB::table('tbl_category')->orderby('category_id','desc')->get();
+         $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
+      
+      $edit_product = DB::table('tbl_product')->where ('product_id',$product_id)->get();
+      $manager_product = view('admin.edit_product')->with('edit_product',$edit_product)->with('cate_product',$cate_product)
+         ->with('brand_product',$brand_product);
+      return view ('admin_layout')->with('admin.edit_product',$manager_product);
+   }
 
-        $manager_product  = view('admin.edit_product')->with('edit_product',$edit_product);
-        return view('admin_layout')->with('admin.edit_product', $manager_product);
-    }
-
-    public function update_product(Request $request,$product_id){
-        $this->AuthLogin();
-        $data = array();
-        $data['product_name'] = $request->product_name;     
-        $data['product_desc'] = $request->product_desc;
-        $data['product_status'] = $request->product_status;
-        DB::table('tbl_product')->where('product_id',$product_id)->update($data);
-        Session::put('message','Cập nhật thương hiệu sản phẩm thành công');
-        return Redirect::to('all-product');
-    }
+   public function update_product(Request $Request,$product_id){
+      $this->AuthLogin();
+    $data = array();
+     $data['product_name']= $Request->product_name;
+      $data['product_price']= $Request->product_price;
+      $data['product_desc']= $Request->product_desc;
+      $data['product_content']= $Request->product_content;
+      $data['category_id']= $Request->product_cate;
+      $data['brand_id']= $Request->product_brand;
+      $get_image = $Request->file('product_image');
+      if($get_image){
+               $get_name_image = $get_image->getClientOriginalName();
+               $name_image = current(explode('.', $get_name_image));
+               $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+               $get_image->move('public/uploads/product',$new_image);
+               $data['product_image'] = $new_image;
+               DB::table('tbl_product')->where('product_id', $product_id) -> update($data);
+               Session::put('message','Cập nhật sản phẩm ko thành công');
+               return Redirect::to('all-product');
+            }
+            DB::table('tbl_product')->where('product_id', $product_id) -> update($data);
+            Session::put('message','Cap nhat sản phẩm thành công');
+            return Redirect::to('all-product');
+    
+   }
     public function delete_product($product_id){
         $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->delete();

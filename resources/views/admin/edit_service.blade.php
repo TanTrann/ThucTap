@@ -33,7 +33,7 @@
                         <div class="card-block">
                             @foreach($edit_service as $key => $edit_value)
                            
-                            <form action="{{URL::to('/update-service/'.$edit_value->service_id)}}" method="post">
+                            <form action="{{URL::to('/update-service/'.$edit_value->service_id)}}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field()}}
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Tên dịch vụ</label>
@@ -48,25 +48,24 @@
                                                     <input type="file" class="form-control">
                                                 </div>
                                             </div> -->
-                                    <div class="form-group row">
+                                    
+
+                                    
+
+                                     <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Hình ảnh dịch vụ</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" name="service_images" class="form-control" >
+                                        <img src="{{URL::to('public/uploads/service/'.$edit_value->service_images )}}" height="100" width="100">
+                                    </div>
+                                </div>
+
+                                   <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Chi tiết dịch vụ</label>
                                                 <div class="col-sm-10">
-                                                    <textarea rows="1" cols="5" class="form-control"
-                                                    name="service_content" >{{$edit_value->service_price}}</textarea>
+                                                    <textarea rows="8" class="form-control" name="service_content" id="ckeditor5" >{{$edit_value->service_content}}</textarea>
                                                 </div>
                                     </div>
-
-                                    <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label"> Giá tiền</label>
-                                                <div class="col-sm-10">
-                                                    <textarea rows="1" cols="5" class="form-control"
-                                                    name="service_price" >{{$edit_value->service_price}}</textarea>
-
-                                                    <p id="price">{{number_format($serv->service_price,0,',','.').' '.'VNĐ'}}</p> 
-                                                </div>
-                                    </div>
-
-                                   
                                     
 
                                     <button class="btn btn-grd-success" style="float: right;" name="save-service">Cập nhật</button>

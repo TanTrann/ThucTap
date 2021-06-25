@@ -34,15 +34,29 @@ public function save_service(Request $Request){
         $this->AuthLogin();
    		$data =  array();
    		$data['service_name']= $Request->service_name;
-   		$data['service_price']= $Request->service_price;
+
    		$data['service_content']= $Request->service_content;
    		
    		$data['service_status']= $Request->service_status;
+       $data['service_images']= $Request->service_images;
+      $get_image = $Request->file('service_images');
+         
+          if($get_image){
+               $get_name_image = $get_image->getClientOriginalName();
+               $name_image = current(explode('.', $get_name_image));
+               $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+               $get_image->move('public/uploads/service',$new_image);
+               $data['service_images'] = $new_image;
+               DB::table('tbl_service') -> insert($data);
+               Session::put('message','Thêm dich vu thành công');
+               return Redirect::to('add-service');
+            }
+             $data['service_images'] = '';
+          DB::table('tbl_service')->insert($data);
+          Session::put('message','Thêm dich vu thành công');
+          return Redirect::to('add-service');
 
-
-      		DB::table('tbl_service')->insert($data);
-      		Session::put('message','Thêm dịch vụ thành công');
-      		return Redirect::to('add-service');
+      	
     }
 public function all_service (){
         $this->AuthLogin();

@@ -19,7 +19,7 @@ class CreateTblDataService extends Migration
             $table->integer('data_service_price');
             $table->text('data_service_content');
             $table->integer('data_service_status');
-            $table->integer('category_id');
+         
             $table->timestamps();
         });
     }

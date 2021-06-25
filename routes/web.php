@@ -84,3 +84,15 @@ Route::get('/delete-data-service/{data_service_id}','App\Http\Controllers\DataSe
 Route::get('/unactive-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@unactive_data_service');
 Route::get('/active-data-service/{data_service_id}','App\Http\Controllers\DataServiceController@active_data_service');
 
+
+//backend + call_service
+Route::get('/add-call-service','App\Http\Controllers\CallServiceController@add_call_service');
+Route::get('/all-call-service','App\Http\Controllers\CallServiceController@all_call_service');
+Route::get('/edit-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@edit_call_service');
+Route::post('/save-call-service','App\Http\Controllers\CallServiceController@save_call_service');
+Route::post('/update-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@update_call_service');
+Route::get('/delete-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@delete_call_service');
+
+Route::get('/unactive-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@unactive_call_service');
+Route::get('/active-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@active_call_service');
+
