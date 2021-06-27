@@ -2,54 +2,52 @@
 @section('admin_content')
 
 
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
+<div class="col-12 grid-margin stretch-card">
               <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Thêm sản phẩm</h4>
-                  
-                </div>
-                 <?php
+                <div class="card-body">
+                  <h4 class="card-title">Basic form elements</h4>
+                  <p class="card-description">
+                     <?php
                              $message = Session::get('message');
                             if ($message){
                              echo '<span class="text-alert">',$message.'</span>';
                                 Session::put('message',null);
                                 }
                                  ?>
-                <div class="card-body">
-                 
-                  <form action="{{URL::to('save-product')}}" method="post">
+                  </p>
+                  <form class="forms-sample" action="{{URL::to('save-product')}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Tên sản phẩm</label>
-                          <input type="text" name="product_name" class="form-control" id="exampleInputEmail1">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Giá tiền</label>
-                           <input type="text" name="product_price" class="form-control" id="exampleInputEmail1">
-                         
-                        </div>
-                      </div>
-                    
-                    <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Chi tiet dich vu</label>
-                          <textarea rows="8"  name="product_content"  class="form-control" id="ckeditor1" > </textarea>
-                        </div>
-                      </div>
-                   
-
-                   <div class="col-md-12">
-                        <div class="form-group">
-                       <label >Danh mục sản phẩm</label>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Tên sản phẩm</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="product_name">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Số lượng</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" name="product_quantity" >
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Giá tiền</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" name="product_price" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Hình ảnh</label>
+                              <input type="file" class="form-control" name="product_images">
+                            </div>
+                    <div class="form-group">
+                     <div class="form-group">
+                      <label for="exampleTextarea1">Tóm tắt sản phẩm</label>
+                      <textarea class="form-control"  rows="8" name="product_desc"  id="ckeditor1"></textarea>
+                      
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Chi tiết sản phẩm</label>
+                      <textarea class="form-control"  rows="8" name="product_content"  id="ckeditor2"></textarea>
+                      
+                    </div>
+                    <div class="form-group">
+                       <label for="exampleInputPassword4" >Danh mục sản phẩm</label>
                                     <div>
-                                        <select name="product_cate" style="height: 30px ;width: 120px ; padding-left: 10px">
+                                        <select name="product_cate" class="form-control">
                                         @foreach($cate_product as $key => $cate)
                                             <option value="{{$cate->category_id}}">{{$cate->category_name}} </option>
                                         @endforeach
@@ -57,136 +55,30 @@
                                     </select>
                                     </div>
                         </div>
-                      </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                       <label >Danh mục sản phẩm</label>
+                  
+                       <label for="exampleInputPassword4">Thương hiệu sản phẩm</label>
                                     <div>
-                                        <select name="product_cate" style="height: 30px ;width: 120px ; padding-left: 10px">
+                                        <select name="product_brand"class="form-control"  >
                                       @foreach($brand_product as $key => $brand)
-                                            <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                                            <option value="{{$brand->brand_id}}" >{{$brand->brand_name}}</option>
                                         @endforeach
                                             
                                     </select>
                                     </div>
-                        </div>
                       </div>
-
-
-
-
-
-</div>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="exampleInputPassword1">Trạng thái</label>
-                        <br>
-                                    <select  style="height: 30px ;width: 100px ; padding-left: 10px" name="product_status" input-sm m-bot15> 
+                    <div class="form-group">
+                      <label for="exampleSelectGender">Trạng thái</label>
+                       <select  class="form-control" name="product_status" input-sm m-bot15> 
                                         <option value="0">Hiện</option>
                                         <option value="1">Ẩn</option>
                                     </select>
-
-                   </div>
-                   </div>
-                    <button type="submit" class="btn btn-primary pull-right" name="add-product">Thêm sản phẩm</button>
-                    <div class="clearfix"></div>
+                      </div>
+                    
+                    <button type="submit" name="add-product" class="btn btn-primary mr-2">Thêm sản phẩm</button>
                   </form>
-
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              {{-- <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="javascript:;">
-                    <img class="img" src="../assets/img/faces/marc.jpg" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                  <h4 class="card-title">Alec Thompson</h4>
-                  <p class="card-description">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                  </p>
-                  <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
-                </div>
-              </div> --}}
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        
-      </footer>
-    </div>
-  </div>
-  <div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-      <a href="#" data-toggle="dropdown">
-        <i class="fa fa-cog fa-2x"> </i>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="header-title"> Sidebar Filters</li>
-        <li class="adjustments-line">
-          <a href="javascript:void(0)" class="switch-trigger active-color">
-            <div class="badge-colors ml-auto mr-auto">
-              <span class="badge filter badge-purple" data-color="purple"></span>
-              <span class="badge filter badge-azure" data-color="azure"></span>
-              <span class="badge filter badge-green" data-color="green"></span>
-              <span class="badge filter badge-warning" data-color="orange"></span>
-              <span class="badge filter badge-danger" data-color="danger"></span>
-              <span class="badge filter badge-rose active" data-color="rose"></span>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-        </li>
-        <li class="header-title">Images</li>
-        <li class="active">
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-1.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-2.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-3.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-4.jpg" alt="">
-          </a>
-        </li>
-        <li class="button-container">
-          <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
-        </li>
-        <!-- <li class="header-title">Want more components?</li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                  Get the pro version
-                </a>
-            </li> -->
-        <li class="button-container">
-          <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
-            View Documentation
-          </a>
-        </li>
-        <li class="button-container github-star">
-          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li>
-        <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
-          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
-          <br>
-          <br>
-        </li>
-      </ul>
-    </div>
-  </div>
-  @endsection
+
+
+@endsection

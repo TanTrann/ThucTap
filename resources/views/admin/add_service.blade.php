@@ -20,7 +20,7 @@
                                  ?>
                 <div class="card-body">
                  
-                  <form action="{{URL::to('save-service')}}" method="post">
+                  <form action="{{URL::to('save-service')}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
                     <div class="row">
                       <div class="col-md-12">
@@ -55,7 +55,7 @@
 
                    </div>
                    </div>
-                    <button type="submit" class="btn btn-primary pull-right" name="add-service">Thêm dich vu</button>
+                    <button type="submit" class="btn btn-primary pull-right" name="save-service">Thêm dich vu</button>
                     <div class="clearfix"></div>
                   </form>
 

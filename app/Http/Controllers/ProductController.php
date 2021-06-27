@@ -43,20 +43,20 @@ public function save_product(Request $Request){
    		$data['category_id']= $Request->product_cate;
    		$data['brand_id']= $Request->product_brand;
    		$data['product_status']= $Request->product_status;
-         $data['product_image']= $Request->product_image;
-   		$get_image = $Request->file('product_image');
+         $data['product_images']= $Request->product_images;
+   		$get_image = $Request->file('product_images');
          
       		if($get_image){
                $get_name_image = $get_image->getClientOriginalName();
                $name_image = current(explode('.', $get_name_image));
                $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
                $get_image->move('public/uploads/products',$new_image);
-               $data['product_image'] = $new_image;
+               $data['product_images'] = $new_image;
                DB::table('tbl_product') -> insert($data);
                Session::put('message','Thêm sản phẩm thành công');
                return Redirect::to('add-product');
             }
-             $data['product_image'] = '';
+             $data['product_images'] = '';
       		DB::table('tbl_product')->insert($data);
       		Session::put('message','Thêm sản phẩm thành công');
       		return Redirect::to('add-product');

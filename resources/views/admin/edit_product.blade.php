@@ -2,14 +2,9 @@
 @extends('admin_layout')
 
 
-<div class="pcoded-inner-content">
 
-<!-- Main-body start -->
-<div class="main-body">
-<div class="page-wrapper">
-<!-- Page body start -->
-    <div class="page-body">
-        <div class="row">
+
+
             <div class="col-sm-12">
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
@@ -63,7 +58,7 @@
                                     <label class="col-sm-2 col-form-label">Hình ảnh sản phẩm</label>
                                     <div class="col-sm-10">
                                         <input type="file" name="product_image" class="form-control" >
-                                        <img src="{{URL::to('public/uploads/products/'.$edit_value->product_image )}}" height="100" width="100">
+                                        <img src="{{URL::to('public/uploads/products/'.$edit_value->product_images )}}" height="100" width="100">
                                     </div>
                                 </div>
 
@@ -117,13 +112,5 @@
                                     <button class="btn btn-grd-success" style="float: right;" name="save-product">Cập nhật</button>
                             </form> 
                             @endforeach                                                                         
-                        </div>
-                    </div>                                                                        
-                </div>
-            </div>
-        </div>
-</div>
-</div>
-</div>
-           
+      </div></div>
 @endsection

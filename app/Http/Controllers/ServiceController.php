@@ -99,13 +99,13 @@ public function all_service (){
         $data['service_content'] = $request->service_content;
 
         DB::table('tbl_service')->where('service_id',$service_id)->update($data);
-        Session::put('message','Cập nhật thương hiệu sản phẩm thành công');
+        Session::put('message','Cập nhật dịch vụ thành công');
         return Redirect::to('all-service');
     }
     public function delete_service($service_id){
         $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->delete();
-        Session::put('message','Xóa thương hiệu sản phẩm thành công');
+        Session::put('message','Xóa dịch vụ thành công');
         return Redirect::to('all-service');
     }
 }

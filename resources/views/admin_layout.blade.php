@@ -1,479 +1,337 @@
-<!--
-=========================================================
-Material Dashboard - v2.1.2
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/material-dashboard
-Copyright 2020 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../ img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../ img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-  Dashboard
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="{{asset('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')}}" />
-  <link rel="stylesheet" href="{{asset('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}">
-  <!-- CSS Files -->
-  <link href="{{asset('public/backend/css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{('public/backend/demo/demo.css')}}" rel="stylesheet" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Mobifone Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{asset('public/backend/vendors/mdi/css/materialdesignicons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('public/backend/vendors/base/vendor.bundle.base.css')}}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="{{asset('public/backend/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{asset('public/backend/css/style.css')}}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{{asset('public/backend/images/favicon.png')}}" />
 </head>
-
-<body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../ img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Trang ADMIN
-        </a></div>
-      <div class="sidebar-wrapper">
-        <ul id="nav" class="nav">
-        
-    <li>
-      <div class="link"><i class="material-icons">dashboard</i>
-        <a href="{{URL('/dashboard')}}" style="width: 20px;margin: 0px -18px 0px;">Trang quản trị</a>
-        </div>
-        
-    </li>
-      
-        <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Sản phẩm</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="{{URL('/all-product')}}">Liệt kê</a></li>
-            <li><a href="{{URL('/add-product')}}">Thêm sản phẩm</a></li>
-           
-         </ul>
-    </li>
-
-
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Danh mục sản phẩm</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="{{URL('/all-category')}}">Liệt kê</a></li>
-            <li><a href="{{URL('/add-category')}}">Thêm danh muc</a></li>
-           
-         </ul>
-    </li>
-
-   
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Thương hiệu sản phẩm</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="{{URL('/all-brand')}}">Liệt kê</a></li>
-            <li><a href="{{URL('/add-brand')}}">Thêm Thương hiệu</a></li>
-           
-         </ul>
-    </li>
-
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Goi cuoc data</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="{{URL('/all-data-service')}}">Liệt kê</a></li>
-            <li><a href="{{URL('/add-data-service')}}">Thêm dich vu</a></li>
-           
-         </ul>
-    </li>
-
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Goi cuoc thoai</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="{{URL('/all-call-service')}}">Liệt kê</a></li>
-            <li><a href="{{URL('/add-call-service')}}">Thêm dich vu</a></li>
-           
-         </ul>
-    </li>
-
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Dich vu khac</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="{{URL('/all-service')}}">Liệt kê</a></li>
-            <li><a href="{{URL('/add-service')}}">Them dich vu</a></li>           
-
-         </ul>
-    </li>
-  
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Đơn hàng</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="#">Liệt kê</a></li>           
-         </ul>
-    </li>
-
-    <li>
-      <div class="link"><i class="material-icons">inventory_2</i>
-        <p>Dau gia</p>
-        <i class="fa fa-chevron-down"></i></div>
-          <ul class="submenu">
-            <li><a href="#">Liệt kê</a></li>
-            <li><a href="#">Thêm dau gia</a></li>
-
-         </ul>
-    </li>
-</ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
+          <a class="navbar-brand brand-logo" href="{{URL('/dashboard')}}"><img src="public/backend/images/logo.png" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="public/backend/images/logo-mini.svg" alt="logo"/></a>
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-sort-variant"></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
+        </div>  
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-4 w-100">
+          <li class="nav-item nav-search d-none d-lg-block w-100">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="mdi mdi-magnify"></i>
+                </span>
               </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
+              <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown mr-1">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+              <i class="mdi mdi-message-text mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                    <img src="public/backend/images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
+                <div class="item-content flex-grow">
+                  <h6 class="ellipsis font-weight-normal">David Grey
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    The meeting is cancelled
                   </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <p style="padding: 15px 15px 15px 25px;background-color: #d2d5d8;" >
-                    <?php
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="item-content flex-grow">
+                  <h6 class="ellipsis font-weight-normal">Tim Cook
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    New product launch
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="item-content flex-grow">
+                  <h6 class="ellipsis font-weight-normal"> Johnson
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Upcoming board meeting
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-4">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="mdi mdi-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-success">
+                    <i class="mdi mdi-information mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-warning">
+                    <i class="mdi mdi-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item">
+                <div class="item-thumbnail">
+                  <div class="item-icon bg-info">
+                    <i class="mdi mdi-account-box mx-0"></i>
+                  </div>
+                </div>
+                <div class="item-content">
+                  <h6 class="font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="public/backend/images/faces/face5.jpg" alt="profile"/>
+              <span class="nav-profile-name"> <?php
                       $name = Session::get('admin_name');
                         if ($name){
                                     echo $name;
                                   }
-                      ?>   
+                      ?>   </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="mdi mdi-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" href="{{URL('/logout')}}">
+                <i class="mdi mdi-logout text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link"  href="{{URL('/dashboard')}}">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="mdi mdi mdi-view-list menu-icon"></i>
+              <span class="menu-title">Sản phẩm</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-product')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-product')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#cate" aria-expanded="false" aria-controls="cate">
+              <i class="mdi mdi-clipboard-text  menu-icon"></i>
+              <span class="menu-title">Danh mục</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="cate">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-category')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-category')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#bra" aria-expanded="false" aria-controls="bra">
+              <i class="mdi mdi-clipboard-text menu-icon"></i>
+              <span class="menu-title">Thương hiệu</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="bra">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-brand')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-brand')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data">
+              <i class="mdi mdi mdi-cellphone menu-icon"></i>
+              <span class="menu-title">Gói cước data</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="data">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-data-service')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-data-service')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#call" aria-expanded="false" aria-controls="call">
+              <i class="mdi mdi mdi-cellphone menu-icon"></i>
+              <span class="menu-title">Gói cước thoại</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="call">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-call-service')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-call-service')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#service" aria-expanded="false" aria-controls="service">
+              <i class="mdi mdi mdi-cellphone menu-icon"></i>
+              <span class="menu-title">Dịch vụ khác</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="service">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-service')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-service')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#cart" aria-expanded="false" aria-controls="cart">
+              <i class="mdi mdi mdi-cart menu-icon"></i>
+              <span class="menu-title">Giỏ hàng</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="cart">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Liệt kê</a></li>
+                
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#a" aria-expanded="false" aria-controls="a">
+              <i class="mdi mdi mdi-bank menu-icon"></i>
+              <span class="menu-title">Đấu giá</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="a">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          
+         
 
-                      <img src="public/backend/img/faces/marc.jpg" style="padding-left: 20px ;height: 30px;" >   
-                  </p>
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{URL('/logout')}}">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation/documentation.html">
+              <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
       </nav>
-      <!-- End Navbar -->
-      <div class="content">
-     @yield('admin_content')
-     </div>
+         <div class="main-panel">
+      @yield('admin_content')
+    </div>
+
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
   </div>
-  <!--   Core JS Files   -->
-  <script src="{{asset('public/backend/js/core/jquery.min.js')}}"></script>
-  <script src="{{asset('public/backend/js/core/popper.min.js')}}"></script>
-  <script src="{{asset('public/backend/js/core/bootstrap-material-design.min.js')}}"></script>
-  <script src="{{asset('public/backend/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
-  <!-- Plugin for the momentJs  -->
-  <script src="{{asset('public/backend/js/plugins/moment.min.js')}}"></script>
-  <!--  Plugin for Sweet Alert -->
-  <script src="{{asset('public/backend/js/plugins/sweetalert2.js')}}"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="{{asset('public/backend/js/plugins/jquery.validate.min.js')}}"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="{{asset('public/backend/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
-  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="{{asset('public/backend/js/plugins/bootstrap-selectpicker.js')}}"></script>
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="{{asset('public/backend/js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="{{asset('public/backend/js/plugins/jquery.dataTables.min.js')}}"></script>
-  <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="{{asset('public/backend/js/plugins/bootstrap-tagsinput.js')}}"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="{{asset('public/backend/js/plugins/jasny-bootstrap.min.js')}}"></script>
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="{{asset('public/backend/js/plugins/fullcalendar.min.js')}}"></script>
-  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="{{asset('public/backend/js/plugins/jquery-jvectormap.js')}}"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="{{asset('public/backend/js/plugins/nouislider.min.js')}}"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  <script src="public/backend/js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="public/backend/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="public/backend/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="public/backend/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="public/backend/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
+  <!-- container-scroller -->
 
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
+  <!-- plugins:js -->
+  <script src="{{asset('public/backend/vendors/base/vendor.bundle.base.js')}}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <script src="{{asset('public/backend/vendors/chart.js/Chart.min.js')}}"></script>
+  <script src="{{asset('public/backend/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{asset('public/backend/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{{asset('public/backend/js/off-canvas.js')}}"></script>
+  <script src="{{asset('public/backend/js/hoverable-collapse.js')}}"></script>
+  <script src="{{asset('public/backend/js/template.js')}}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{{asset('public/backend/js/dashboard.js')}}"></script>
+  <script src="{{asset('public/backend/js/data-table.js')}}"></script>
+  <script src="{{asset('public/backend/js/jquery.dataTables.js')}}"></script>
+  <script src="{{asset('public/backend/js/dataTables.bootstrap4.js')}}"></script>
+  <!-- End custom js for this page-->
 
-        $full_page = $('.full-page');
-
-        $sidebar_responsive = $('body > .navbar-collapse');
-
-        window_width = $(window).width();
-
-        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-            $('.fixed-plugin .dropdown').addClass('open');
-          }
-
-        }
-
-        $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
+  <script src="{{asset('public/backend/js/jquery.cookie.js')}}" type="text/javascript"></script>
 
 
-          var new_image = $(this).find("img").attr('src');
+  <script src="{{asset('public\backend\ckeditor\ckeditor.js')}}" type="text/javascript"></script>
 
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
-      });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in  js/demos.js
-      md.initDashboardPageCharts();
-
-    });
-  </script>
-
-
-<script>
-      $(function() {
-  var nav = function(el, multiple) {
-    this.el = el || {};
-    this.multiple = multiple || false;
-
-    // Variables privadas
-    var links = this.el.find('.link');
-    // Evento
-    links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-  }
-
-  nav.prototype.dropdown = function(e) {
-    var $el = e.data.el;
-      $this = $(this),
-      $next = $this.next();
-
-    $next.slideToggle();
-    $this.parent().toggleClass('open');
-
-    if (!e.data.multiple) {
-      $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-    };
-  } 
-
-  var nav = new nav($('#nav'), false);
-});
-</script>
- <script  type="text/javascript">
+   <script  type="text/javascript">
        // Replace the <textarea id="editor1"> with a CKEditor
        // instance, using default configuration.
   
@@ -489,6 +347,7 @@ The above copyright notice and this permission notice shall be included in all c
      
     
 </script>
-  </body>
+</body>
 
 </html>
+
