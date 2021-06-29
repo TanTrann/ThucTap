@@ -25,7 +25,7 @@
                             </div>
 
                         </div>
-                        <div class="card-block">
+                        <div class="card-body">
                             @foreach($edit_product as $key => $edit_value)
                             <h4 class="sub-title"></h4>
                             <form action="{{URL::to('/update-product/'.$edit_value->product_id)}}" method="post">
@@ -108,9 +108,13 @@
                                 </div>
 
                                     
-
-                                    <button class="btn btn-grd-success" style="float: right;" name="save-product">Cập nhật</button>
+                                    <div style="float:right">
+                                    <button type="submit" class="btn btn-primary pull-right"  style="float: right;" name="save-product">Cập nhật</button>
+                                    </div>
+                                    <div class="clearfix"></div>
                             </form> 
+                          
                             @endforeach                                                                         
-      </div></div>
+      </div>
+      </div>
 @endsection

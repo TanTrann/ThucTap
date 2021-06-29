@@ -72,7 +72,7 @@ public function all_service (){
    public function unactive_service($service_id){
          $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->update(['service_status'=>1]);
-        Session::put('message','Ẩn thương hiệu');
+        Session::put('message','Ẩn dịch vụ');
         return Redirect::to('all-service');
 
     }
@@ -80,7 +80,7 @@ public function all_service (){
   public function active_service($service_id){
          $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->update(['service_status'=>0]);
-        Session::put('message','Hiện thương hiệu');
+        Session::put('message','Hiện dịch vụ');
         return Redirect::to('all-service');
     }
 

@@ -20324,13 +20324,13 @@ code {
 
 .input-group-append .input-group-text,
 .input-group-prepend .input-group-text {
-  border-color: #f3f3f3;
+ 
   padding: 0.875rem 0.75rem;
   color: #c9c8c8;
 }
 
 .form-control, .dataTables_wrapper select {
-  border: 1px solid #f3f3f3;
+  border: 1px solid ;
   font-weight: 400;
   font-size: 0.875rem;
 }
@@ -20338,12 +20338,11 @@ code {
 select.form-control, .dataTables_wrapper select {
   padding: .4375rem .75rem;
   border: 0;
-  outline: 1px solid #f3f3f3;
-  color: #c9c8c8;
+  outline: 1px solid;
 }
 
 select.form-control:focus, .dataTables_wrapper select:focus {
-  outline: 1px solid #f3f3f3;
+  outline: 1px solid;
 }
 
 select.form-control.border-primary, .dataTables_wrapper select.border-primary {
@@ -20418,7 +20417,7 @@ select.form-control.border-dark:focus, .dataTables_wrapper select.border-dark:fo
 }
 
 .form-group.has-danger .form-control, .form-group.has-danger .dataTables_wrapper select, .dataTables_wrapper .form-group.has-danger select {
-  border-color: #ff4747;
+  border-color: #000;
 }
 
 .form-group .file-upload-default {

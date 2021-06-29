@@ -3,17 +3,24 @@
 <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
-                  <h4 class="card-title">Dịch vụ khác</h4>
+                  <h4>Dịch vụ khác</h4>
                   <p class="card-brand"></p>
+                  <span> <?php
+                             $message = Session::get('message');
+                            if ($message){
+                             echo '<span style="color:red; font-size:17px;">',$message.'</span>';
+                                Session::put('message',null);
+                                }
+                                 ?></span>
                 </div>
                 <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                    <thead class="text-warning">
+                <table class="table table-hover"  >
+                    <thead style="background-color: #add2fb">
                       <th>ID</th>
                       <th>Tên dịch vụ</th>
                       <th>Hinh ảnh</th>
                       <th>Trạng thái</th>
-                        <th>Chi tiết</th>
+                        <th style="width:400px">Chi tiết</th>
                       <th colspan="2" style="text-align: center; width: 88px;"> Quản lý</th>
                     </thead>
                     <tbody>
@@ -27,12 +34,12 @@
                  if ($serv->service_status==0){
                     ?>
 
-                        <a href="{{URL::to('/unactive-product/'.$serv ->service_id)}}"><span class="mdi mdi-cart" style="font-size: 20px"></span></a>
+                        <a href="{{URL::to('/unactive-service/'.$serv ->service_id)}}"><span class="mdi mdi-cart" style="font-size: 20px"></span></a>
                  
                       <?php
                           }else{
                       ?>
-                        <a href="{{URL::to('/active-product/'.$serv ->service_id)}}"><span class="mdi mdi-cart-off" style="font-size: 20px"></span></a>'
+                        <a href="{{URL::to('/active-service/'.$serv ->service_id)}}"><span class="mdi mdi-cart-off" style="font-size: 20px"></span></a>'
                       <?php   
                           }
                       ?>

@@ -1,20 +1,21 @@
 @extends('admin_layout')
 @section('admin_content')
 
-
-<div class="col-12 grid-margin stretch-card">
+<div class="col-lg-12 col-md-12">
               <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Basic form elements</h4>
-                  <p class="card-description">
-                     <?php
+                <div class="card-header card-header-warning">
+                  <h4>Thêm sản phẩm</h4>
+                  <p class="card-brand"></p>
+                  <span> <?php
                              $message = Session::get('message');
                             if ($message){
-                             echo '<span class="text-alert">',$message.'</span>';
+                             echo '<span style="color:red; font-size:17px;">',$message.'</span>';
                                 Session::put('message',null);
                                 }
-                                 ?>
-                  </p>
+                                 ?></span>
+                </div>
+
+                <div class="card-body table-responsive">
                   <form class="forms-sample" action="{{URL::to('save-product')}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
                     <div class="form-group">
@@ -74,7 +75,9 @@
                                     </select>
                       </div>
                     
-                    <button type="submit" name="add-product" class="btn btn-primary mr-2">Thêm sản phẩm</button>
+                      <div style="float:right">
+                       <button type="submit" name="add-product" class="btn btn-primary mr-2">Thêm sản phẩm</button>
+                       </div>
                   </form>
                 </div>
               </div>

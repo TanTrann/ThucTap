@@ -2,7 +2,14 @@
 @extends('admin_layout')
 
 
+<div class="col-lg-12 col-md-12">
 
+<!-- Main-body start -->
+<div class="main-body">
+<div class="page-wrapper">
+<!-- Page body start -->
+    <div class="page-body">
+        <div class="row">
             <div class="col-sm-12">
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
@@ -23,7 +30,7 @@
                             </div>
 
                         </div>
-                        <div class="card-block">
+                        <div class="card-body table-responsive">
                             @foreach($edit_service as $key => $edit_value)
                            
                             <form action="{{URL::to('/update-service/'.$edit_value->service_id)}}" method="post" enctype="multipart/form-data">
@@ -61,12 +68,17 @@
                                     </div>
                                     
 
-                                    <button class="btn btn-grd-success" style="float: right;" name="save-service">Cập nhật</button>
+                                    <button  class="btn btn-primary mr-2" style="float: right;" name="save-service">Cập nhật</button>
                             </form> 
                             @endforeach                                                                         
                         </div>
                     </div>                                                                        
                 </div>
         
-           
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</div
 @endsection

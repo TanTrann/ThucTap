@@ -76,7 +76,7 @@ public function all_product (){
    public function unactive_product($product_id){
          $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
-        Session::put('message','Ẩn thương hiệu');
+        Session::put('message','Ẩn sản phẩm thành công');
         return Redirect::to('all-product');
 
     }
@@ -84,7 +84,7 @@ public function all_product (){
   public function active_product($product_id){
          $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>0]);
-        Session::put('message','Hiện thương hiệu');
+        Session::put('message','Hiện sản phẩm thành công');
         return Redirect::to('all-product');
     }
 
@@ -116,7 +116,7 @@ public function all_product (){
                $get_image->move('public/uploads/product',$new_image);
                $data['product_image'] = $new_image;
                DB::table('tbl_product')->where('product_id', $product_id) -> update($data);
-               Session::put('message','Cập nhật sản phẩm ko thành công');
+               Session::put('message','Cập nhật sản phẩm không thành công');
                return Redirect::to('all-product');
             }
             DB::table('tbl_product')->where('product_id', $product_id) -> update($data);
@@ -127,7 +127,7 @@ public function all_product (){
     public function delete_product($product_id){
         $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->delete();
-        Session::put('message','Xóa thương hiệu sản phẩm thành công');
+        Session::put('message','Xóa thương sản phẩm thành công');
         return Redirect::to('all-product');
     }
 }

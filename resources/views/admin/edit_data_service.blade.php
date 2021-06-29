@@ -3,20 +3,11 @@
 
 
 
-<div class="col-lg-12 col-md-12">
-
-
-<!-- Main-body start -->
-<div class="main-body">
-<div class="page-wrapper">
-<!-- Page body start -->
-    <div class="page-body">
-        <div class="row">
             <div class="col-sm-12">
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Chỉnh sửa thương hiệu</h4>
+                        <h4>Chỉnh sửa gói cước thoại </h4>
                         <span> <?php
                              $message = Session::get('message');
                             if ($message){
@@ -33,36 +24,43 @@
 
                         </div>
                         <div class="card-body table-responsive">
-                            @foreach($edit_brand as $key => $edit_value)
-                            <h4 class="sub-title">Thêm thương hiệu</h4>
-                            <form action="{{URL::to('/update-brand/'.$edit_value->brand_id)}}" method="post">
+                            @foreach($edit_data_service as $key => $edit_value)
+                           
+                            <form action="{{URL::to('/update-data-service/'.$edit_value->data_service_id)}}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field()}}
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Tên thương hiệu</label>
+                                    <label class="col-sm-2 col-form-label">Tên dịch vụ</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" 
-                                        value="{{$edit_value->brand_name}}" name="brand_name">
+                                        value="{{$edit_value->data_service_name}}" name="data_service_name">
                                     </div>
                                 </div>
-                                    <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Mô tả</label>
+                                           <!--  <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Upload File</label>
                                                 <div class="col-sm-10">
-                                                    <textarea rows="5" cols="5" class="form-control"
-                                                    name="brand_desc" >{{$edit_value->brand_desc}}</textarea>
+                                                    <input type="file" class="form-control">
+                                                </div>
+                                            </div> -->
+                                    
+
+                                    
+
+                                     
+
+                                   <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Chi tiết dịch vụ</label>
+                                                <div class="col-sm-10">
+                                                    <textarea rows="8" class="form-control" name="data_service_content">{{$edit_value->data_service_content}}</textarea>
                                                 </div>
                                     </div>
                                     
 
-                                    <button class="btn btn-primary mr-2" style="float: right;" name="save-brand">Cập nhật</button>
+                                    <button  class="btn btn-primary mr-2" style="float: right;"  name="save-data-service">Cập nhật</button>
                             </form> 
                             @endforeach                                                                         
                         </div>
                     </div>                                                                        
                 </div>
-            </div>
-        </div>
-</div>
-</div>
-</div>
+        
            
 @endsection

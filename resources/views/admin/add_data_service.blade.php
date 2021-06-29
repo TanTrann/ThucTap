@@ -8,16 +8,16 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Thêm dich vu</h4>
-                  
-                </div>
-                 <?php
+                  <h4>Thêm dịch vụ data</h4>
+                  <?php
                              $message = Session::get('message');
                             if ($message){
-                             echo '<span class="text-alert">',$message.'</span>';
+                             echo '<span style="color:red; font-size:17px;">',$message.'</span>';
                                 Session::put('message',null);
                                 }
                                  ?>
+                </div>
+                
                 <div class="card-body">
                  
                   <form action="{{URL::to('save-data-service')}}" method="post">
@@ -40,7 +40,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Chi tiet dich vu</label>
-                          <textarea rows="8"  name="data_service_content"  class="form-control" id="ckeditor1" > </textarea>
+                          <textarea rows="8"  name="data_service_content"  class="form-control"  > </textarea>
                         </div>
                       </div>
                    </div>
@@ -55,7 +55,7 @@
 
                    </div>
                    </div>
-                    <button type="submit" class="btn btn-primary pull-right" name="add-data-service">Thêm dich vu</button>
+                    <button type="submit" class="btn btn-primary pull-right" style="float:right" name="add-data-service">Thêm dich vu</button>
                     <div class="clearfix"></div>
                   </form>
 

@@ -3,7 +3,7 @@
 <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
-                  <h4 class="card-title">Sản phẩm</h4>
+                  <h4>Liệt kê sản phẩm</h4>
                   <p class="card-brand"></p>
                   <span> <?php
                              $message = Session::get('message');
@@ -14,7 +14,7 @@
                                  ?></span>
                 </div>
                 <div class="card-body table-responsive">
-                  <table class="table table-hover"  style="text-align:  center">
+                  <table class="table table-hover"  >
                     <thead style="background-color: #add2fb">
                       <th>ID</th>
                       <th>Tên sản phẩm</th>
@@ -23,6 +23,7 @@
                       <th>Hình ảnh</th>
                       <th>Danh mục</th>
                       <th>Thương hiệu</th>
+                      
                       <th>Trạng thái</th>
                       <th colspan="2" style="text-align: center; width: 88px;"> Quản lý</th>
                     </thead>
@@ -36,6 +37,7 @@
                                                             <td><img src="public/uploads/products/{{$pro->product_images}}"></td>
                                                             <td>{{ $pro->category_name }}</td>
                                                             <td>{{ $pro->brand_name }}</td>
+                                                            
                                                             <td  style="text-align:  center"><span class="text-ellipsis">
                  
                     <?php   

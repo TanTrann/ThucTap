@@ -9,7 +9,7 @@ use Session;
 use Illuminate\support\facades\redirect;
 session_start();
 
-class DataServiceController extends Controller
+class DataserviceController extends Controller
 {
     public function AuthLogin(){
         $admin_id = Session::get('admin_id');
@@ -22,10 +22,10 @@ class DataServiceController extends Controller
    	
    	public function add_data_service(){
       $this->AuthLogin();
-        $cate_dataservice = DB::table('tbl_category')->orderby('category_id','desc')->get(); 
+        $cate_data_service = DB::table('tbl_category')->orderby('category_id','desc')->get(); 
         
 
-        return view('admin.add_data_service')->with('cate_data_service', $cate_dataservice);
+        return view('admin.add_data_service')->with('cate_data_service', $cate_data_service);
 
     }
 
@@ -40,7 +40,7 @@ public function save_data_service(Request $Request){
 
 
       		DB::table('tbl_data_service')->insert($data);
-      		Session::put('message','Thêm dịch vụ thành công');
+      		Session::put('message','Thêm dịch vụ data thành công');
       		return Redirect::to('add-data-service');
     }
 public function all_data_service (){
@@ -52,44 +52,44 @@ public function all_data_service (){
    
    }
 
-   public function unactive_dataservice($dataservice_id){
+   public function unactive_data_service($data_service_id){
          $this->AuthLogin();
-        DB::table('tbl_dataservice')->where('dataservice_id',$dataservice_id)->update(['dataservice_status'=>1]);
-        Session::put('message','Ẩn thương hiệu');
-        return Redirect::to('all-dataservice');
+        DB::table('tbl_data_service')->where('data_service_id',$data_service_id)->update(['data_service_status'=>1]);
+        Session::put('message','Ẩn dịch vụ data ');
+        return Redirect::to('all-data-service');
 
     }
 
-  public function active_dataservice($dataservice_id){
+  public function active_data_service($data_service_id){
          $this->AuthLogin();
-        DB::table('tbl_dataservice')->where('dataservice_id',$dataservice_id)->update(['dataservice_status'=>0]);
-        Session::put('message','Hiện thương hiệu');
-        return Redirect::to('all-dataservice');
+        DB::table('tbl_data_service')->where('data_service_id',$data_service_id)->update(['data_service_status'=>0]);
+        Session::put('message','Hiện dịch vụ data ');
+        return Redirect::to('all-data-service');
     }
 
-     public function edit_dataservice($dataservice_id){
+     public function edit_data_service($data_service_id){
         $this->AuthLogin();
-        $edit_dataservice = DB::table('tbl_dataservice')->where('dataservice_id',$dataservice_id)->get();
+        $edit_data_service = DB::table('tbl_data_service')->where('data_service_id',$data_service_id)->get();
 
-        $manager_dataservice  = view('admin.edit_dataservice')->with('edit_dataservice',$edit_dataservice);
-        return view('admin_layout')->with('admin.edit_dataservice', $manager_dataservice);
+        $manager_data_service  = view('admin.edit_data_service')->with('edit_data_service',$edit_data_service);
+        return view('admin_layout')->with('admin.edit_data_service', $manager_data_service);
     }
 
-    public function update_dataservice(Request $request,$dataservice_id){
+    public function update_data_service(Request $request,$data_service_id){
         $this->AuthLogin();
         $data = array();
-        $data['dataservice_name'] = $request->dataservice_name;     
-        $data['dataservice_desc'] = $request->dataservice_desc;
-        $data['dataservice_status'] = $request->dataservice_status;
-        DB::table('tbl_dataservice')->where('dataservice_id',$dataservice_id)->update($data);
-        Session::put('message','Cập nhật thương hiệu sản phẩm thành công');
-        return Redirect::to('all-dataservice');
+        $data['data_service_name'] = $request->data_service_name;     
+        $data['data_service_content'] = $request->data_service_content;
+        
+        DB::table('tbl_data_service')->where('data_service_id',$data_service_id)->update($data);
+        Session::put('message','Cập nhật dịch vụ data  thành công');
+        return Redirect::to('all-data-service');
     }
-    public function delete_dataservice($dataservice_id){
+    public function delete_data_service($data_service_id){
         $this->AuthLogin();
-        DB::table('tbl_dataservice')->where('dataservice_id',$dataservice_id)->delete();
-        Session::put('message','Xóa thương hiệu sản phẩm thành công');
-        return Redirect::to('all-dataservice');
+        DB::table('tbl_data_service')->where('data_service_id',$data_service_id)->delete();
+        Session::put('message','Xóa dịch vụ data thành công');
+        return Redirect::to('all-data-service');
     }
 }
 

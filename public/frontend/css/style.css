@@ -649,6 +649,7 @@ a:focus {
    padding-top: 20px
 }
  .service-item {
+     
     position: relative;
     width: auto;
     padding-top: 17px;
@@ -660,6 +661,7 @@ a:focus {
 
 
 .service-text {
+    
     background: rgba(29, 36, 52, .04);
     padding: 10px;
     width: 350px;
@@ -678,6 +680,7 @@ a:focus {
 
 .service .owl-prev,.service
 .owl-next {
+   
     width: 25px;
     height: 40px;
     display: flex;

@@ -9,7 +9,7 @@ use Session;
 use Illuminate\support\facades\redirect;
 session_start();
 
-class CallServiceController extends Controller
+class callserviceController extends Controller
 {
     public function AuthLogin(){
         $admin_id = Session::get('admin_id');
@@ -22,10 +22,10 @@ class CallServiceController extends Controller
    	
    	public function add_call_service(){
       $this->AuthLogin();
-        $cate_callservice = DB::table('tbl_category')->orderby('category_id','desc')->get(); 
+        $cate_call_service = DB::table('tbl_category')->orderby('category_id','desc')->get(); 
         
 
-        return view('admin.add_call_service')->with('cate_call_service', $cate_callservice);
+        return view('admin.add_call_service')->with('cate_call_service', $cate_call_service);
 
     }
 
@@ -40,7 +40,7 @@ public function save_call_service(Request $Request){
 
 
       		DB::table('tbl_call_service')->insert($data);
-      		Session::put('message','Thêm dịch vụ thành công');
+      		Session::put('message','Thêm dịch vụ thoại thành công');
       		return Redirect::to('add-data-service');
     }
 public function all_call_service (){
@@ -52,43 +52,43 @@ public function all_call_service (){
    
    }
 
-   public function unactive_callservice($callservice_id){
+   public function unactive_call_service($call_service_id){
          $this->AuthLogin();
-        DB::table('tbl_callservice')->where('callservice_id',$callservice_id)->update(['callservice_status'=>1]);
-        Session::put('message','Ẩn thương hiệu');
-        return Redirect::to('all-callservice');
+        DB::table('tbl_call_service')->where('call_service_id',$call_service_id)->update(['call_service_status'=>1]);
+        Session::put('message','Ẩn dịch vụ thoại');
+        return Redirect::to('all-call-service');
 
     }
 
-  public function active_callservice($callservice_id){
+  public function active_call_service($call_service_id){
          $this->AuthLogin();
-        DB::table('tbl_callservice')->where('callservice_id',$callservice_id)->update(['callservice_status'=>0]);
-        Session::put('message','Hiện thương hiệu');
-        return Redirect::to('all-callservice');
+        DB::table('tbl_call_service')->where('call_service_id',$call_service_id)->update(['call_service_status'=>0]);
+        Session::put('message','Hiện dịch vụ thoại');
+        return Redirect::to('all-call-service');
     }
 
-     public function edit_callservice($callservice_id){
+     public function edit_call_service($call_service_id){
         $this->AuthLogin();
-        $edit_callservice = DB::table('tbl_callservice')->where('callservice_id',$callservice_id)->get();
+        $edit_call_service = DB::table('tbl_call_service')->where('call_service_id',$call_service_id)->get();
 
-        $manager_callservice  = view('admin.edit_callservice')->with('edit_callservice',$edit_callservice);
-        return view('admin_layout')->with('admin.edit_callservice', $manager_callservice);
+        $manager_call_service  = view('admin.edit_call_service')->with('edit_call_service',$edit_call_service);
+        return view('admin_layout')->with('admin.edit_call_service', $manager_call_service);
     }
 
-    public function update_callservice(Request $request,$callservice_id){
+    public function update_call_service(Request $request,$call_service_id){
         $this->AuthLogin();
         $data = array();
-        $data['callservice_name'] = $request->callservice_name;     
-        $data['callservice_desc'] = $request->callservice_desc;
-        $data['callservice_status'] = $request->callservice_status;
-        DB::table('tbl_callservice')->where('callservice_id',$callservice_id)->update($data);
-        Session::put('message','Cập nhật thương hiệu sản phẩm thành công');
-        return Redirect::to('all-callservice');
+        $data['call_service_name'] = $request->call_service_name;     
+        $data['call_service_desc'] = $request->call_service_desc;
+        $data['call_service_status'] = $request->call_service_status;
+        DB::table('tbl_call_service')->where('call_service_id',$call_service_id)->update($data);
+        Session::put('message','Cập nhật dịch vụ thoại thành công');
+        return Redirect::to('all-call-service');
     }
-    public function delete_callservice($callservice_id){
+    public function delete_call_service($call_service_id){
         $this->AuthLogin();
-        DB::table('tbl_callservice')->where('callservice_id',$callservice_id)->delete();
-        Session::put('message','Xóa thương hiệu sản phẩm thành công');
-        return Redirect::to('all-callservice');
+        DB::table('tbl_call_service')->where('call_service_id',$call_service_id)->delete();
+        Session::put('message','Xóa dịch vụ thoại thành công');
+        return Redirect::to('all-call-service');
     }
 }

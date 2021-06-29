@@ -3,7 +3,7 @@
 <div class="col-lg-12 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
-                  <h4 class="card-title">Dich vu thoai</h4>
+                  <h4>Dich vu thoai</h4>
                   <p class="card-brand"></p>
                   <span> <?php
                              $message = Session::get('message');
@@ -14,13 +14,13 @@
                                  ?></span>
                 </div>
                 <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                    <thead class="text-warning">
+                <table class="table table-hover">
+                    <thead style="background-color: #add2fb">
                       <th>ID</th>
                       <th>Tên dịch vụ</th>
                       <th>Giá tiền</th>
                       <th>Trạng thái</th>
-                        <th>Chi tiết</th>
+                      <th>Chi tiết</th>
                       <th colspan="2" style="text-align: center; width: 88px;"> Quản lý</th>
                     </thead>
                     <tbody>
@@ -34,12 +34,12 @@
                  if ($call_serv->call_service_status==0){
                     ?>
 
-                        <a href="{{URL::to('/unactive-brand/'.$call_serv ->call_service_id)}}"><span class="fa-thump-styling fa fa-thumbs-up"></span></a>
+                        <a href="{{URL::to('/unactive-call-service/'.$call_serv ->call_service_id)}}"><span class="mdi mdi-cart" style="font-size: 20px"></span></a>
                  
                       <?php
                           }else{
                       ?>
-                        <a href="{{URL::to('/active-brand/'.$call_serv ->call_service_id)}}"><span class="fa-thump-styling fa fa-thumbs-down"></span></a>'
+                        <a href="{{URL::to('/active-call-service/'.$call_serv ->call_service_id)}}"><span class="mdi mdi-cart-off" style="font-size: 20px"></span></a>'
                       <?php   
                           }
                       ?>
@@ -50,10 +50,10 @@
               {{$call_serv ->call_service_content}}  
             </td>
             <td style="text-align: center; width: 15px;">
-              <a href="{{URL::to('/edit-brand/'.$call_serv->call_service_id)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
+              <a href="{{URL::to('/edit-call-service/'.$call_serv->call_service_id)}}" class="active styling-edit" ui-toggle-class=""><i class="mdi mdi-pencil" style="color: blue ;font-size: 17px"></i></a>
             </td>
             <td style="text-align: center;width: 15px;">  
-              <a onclick="return confirm('Are you sure?')" href="{{URL::to('/delete-brand/'.$call_serv->call_service_id)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-times text-danger text"></i></a>
+              <a onclick="return confirm('Are you sure?')" href="{{URL::to('/delete-call-service/'.$call_serv->call_service_id)}}" class="active styling-edit" ui-toggle-class=""><i class="mdi mdi-delete" style="color: red ;font-size: 17px"></i></a>
 
             </td>
 

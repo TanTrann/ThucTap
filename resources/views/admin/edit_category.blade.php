@@ -1,8 +1,7 @@
 @section('admin_content')
 @extends('admin_layout')
 
-
-<div class="pcoded-inner-content">
+<div class="col-lg-12 col-md-12">
 
 <!-- Main-body start -->
 <div class="main-body">
@@ -14,7 +13,7 @@
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Chỉnh sửa danh mục sản phẩm </h4>
+                        <h4>Chỉnh sửa danh mục </h4>
                         <span> <?php
                              $message = Session::get('message');
                             if ($message){
@@ -30,9 +29,9 @@
                             </div>
 
                         </div>
-                        <div class="card-block">
+                         <div class="card-body table-responsive">
                             @foreach($edit_category as $key => $edit_value)
-                            <h4 class="sub-title">Thêm danh mục</h4>
+                            
                             <form action="{{URL::to('/update-category/'.$edit_value->category_id)}}" method="post">
                                     {{ csrf_field()}}
                                 <div class="form-group row">
@@ -59,14 +58,14 @@
                                         <label class="col-sm-2 col-form-label">Trạng thái</label>
                                         <div class="col-sm-3">
                                             <select class="form-control" name="category_status">
-                                                <option value="0">Ẩn</option>
-                                                <option value="1">Hiện</option>
+                                                <option value="0">Hiện</option>
+                                                <option value="1">Ẩn</option>
                                                 
                                             </select>
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-grd-success" style="float: right;" name="save-category">Cập nhật</button>
+                                    <button class="btn btn-primary mr-2" style="float: right;"  name="save-category">Cập nhật</button>
                             </form> 
                             @endforeach                                                                         
                         </div>
