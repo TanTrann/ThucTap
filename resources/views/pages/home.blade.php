@@ -88,14 +88,14 @@
                             <li class="nav-item">
                                                                         
                              <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center ">
-                                <a class="nav-link active" data-toggle="tab" href="#home1" role="tab">Gói cước thoại</a>
+                                <a class="nav-link active" data-toggle="tab" href="#call" role="tab">Gói cước thoại</a>
                             </li>
                            
                             <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center">
-                                <a class="nav-link" data-toggle="tab" href="#profile1" role="tab">Gói data</a>
+                                <a class="nav-link" data-toggle="tab" href="#data" role="tab">Gói data</a>
                             </li>
                             <li class="nav-item" style="width: 200px; font-size: 20px;text-align: center">
-                                <a class="nav-link" data-toggle="tab" href="#messages1" role="tab">Dich vu khác</a>
+                                <a class="nav-link" data-toggle="tab" href="#service" role="tab">Dich vu khác</a>
                             </li>
                            </li>
                         </ul>
@@ -103,19 +103,17 @@
                         <div class="tab-content tabs card-block">
                            
 
-                             <div class="tab-pane" id="messages1" role="tabpanel" >
-                                 <div class="owl-carousel blog-carousel">
+                             <div class="tab-pane active" id="call" role="tabpanel" >
+                                 <div class="owl-carousel service-carousel">
                                     @foreach($all_call_service as $key => $call_serv)
-                                        <div class="">
-                                            <div class="">
-                                                
-                                            </div>
-                        
-                                            <div class="blog-text">
+                                        <div class="service-item">
+                                            <div class="service-text">
                                                 <form>
+
                                                     @csrf           
-                                                        <h2 class="name">{{$call_serv->call_service_name}}</h2>    <p>{{$call_serv->call_service_price}}</p>
-                                                        <p>{!!$call_serv->call_service_content!!}</p>
+                                                    <i class="fas fa-phone-alt" style="font-size: 50px ; border: 1px solid; padding: 19px"></i>
+                                                        <h2 class="name">{{$call_serv->call_service_name}}</h2>    <p>{{ number_format($call_serv->call_service_price,0,',','.') }}vnd  </p>
+                                                        {{-- <p>{!!$call_serv->call_service_content!!}</p> --}}
                                                             <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$call_serv->call_service_id}}"  name="chi-tiet" > 
                                                             </form>
                                             </div>
@@ -124,19 +122,16 @@
                                 
                                 </div>
                              </div>
-                            <div class="tab-pane" id="profile1" role="tabpanel">
-                                <div class="owl-carousel blog-carousel">
+                            <div class="tab-pane" id="data" role="tabpanel">
+                                <div class="owl-carousel service-carousel">
                                     @foreach($all_data_service as $key => $data_serv)
-                                        <div class="">
-                                            <div class="">
-                                                
-                                            </div>
-                        
-                                            <div class="blog-text">
+                                        <div class="service-item">
+                                            <div class="service-text">
                                                 <form>
                                                     @csrf           
-                                                        <h2 class="name">{{$data_serv->data_service_name}}</h2>    <p>{{$data_serv->data_service_price}}</p>
-                                                        <p>{!!$data_serv->data_service_content!!}</p>
+                                                    <i class="fas fa-rss" style="font-size: 50px ; border: 1px solid; padding: 19px"></i>
+                                                        <h2 class="name">{{$data_serv->data_service_name}}</h2>    <p>{{ number_format($data_serv->data_service_price,0,',','.') }}vnd  </p>
+                                                      {{--   <p>{!!$data_serv->data_service_content!!}</p> --}}
                                                             <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}"  name="chi-tiet" > 
                                                             </form>
                                             </div>
@@ -145,30 +140,33 @@
                                 
                                 </div>
                             </div>
-                             <div class="tab-pane active" id="home1" role="tabpanel">
-                                <div class="owl-carousel blog-carousel">
+                             <div class="tab-pane" id="service" role="tabpanel">
+                                <div class="owl-carousel service-carousel">
                                     @foreach($all_service as $key => $serv)
-                                        <div class="">
-                                            <div class="">
-                                                <img src="public/uploads/service/{{ $serv->service_images }}" style="width: 215px; padding: 18px;">
-                                            </div>
-                        
-                                            <div class="blog-text">
-                                                <form>
-                                                    @csrf           
+                                        <div class="service-item">
+                                            <div class="service-text">                                                       
+                                               <form>
+                                                    @csrf  
+                                                    <img src="public/uploads/service/{{ $serv->service_images }}" style="    width: 98px;
+                                                        margin-top: 15px;
+                                                        margin-left: 36%;
+                                                        padding-bottom: 110px;">          
                                                         <h2 class="name">{{$serv->service_name}}</h2>     
-                                                        <p>{!!$serv->service_content!!}</p>
+                                                     {{--    <p>{!!$serv->service_content!!}</p> --}}
                                                             <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}"  name="chi-tiet" > 
                                                             </form>
                                             </div>
                                         </div>
                                     @endforeach
+
                                 </div>
+
                             </div>
-                        </div></div>
-                    </div>
-            </div>
-        </div>
+
+
+                        </div>
+                </div>
+</div>
         <!-- Service End -->
 
 
@@ -569,5 +567,6 @@
             </div>
         </div>
         <!-- Blog End -->
+
 
 @endsection

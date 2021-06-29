@@ -156,5 +156,6 @@
 
         <!-- Template Javascript -->
         <script src="{{asset('public/frontend/js/main.js')}}"></script>
+        
     </body>
 </html>

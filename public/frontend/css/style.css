@@ -646,28 +646,58 @@ a:focus {
 .service {
     position: relative;
     width: 100%;
-    padding: 45px 0 15px 0;
+   padding-top: 20px
 }
-
-.service .service-item {
+ .service-item {
     position: relative;
-    width: 100%;
+    width: auto;
+    padding-top: 17px;
     text-align: center;
-    margin-bottom: 30px;
+    width: 300px;
+    height: 500px;
+    
+}
+
+
+.service-text {
     background: rgba(29, 36, 52, .04);
+    padding: 10px;
+    width: 350px;
+    height:  400px;
+}
+.service-text p{
+    color: #9CB6ED;
+    font-weight: bold;
+}
+.service .owl-nav {
+    width: 1140px;
+    margin: -76px auto auto 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-.service .service-img {
-    position: relative;
-    width: 100%;
+.service .owl-prev,.service
+.owl-next {
+    width: 25px;
+    height: 40px;
+    display: flex;
+    margin-top: -229px;
+    margin-left: -39px;
+    color: #9CB6ED;
+    background: #1d2434;
+  
 }
 
-.service .service-img img {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.owl-next {
+    margin-left: 15px;
 }
+
+ .owl-prev:hover,
+.owl-next:hover {
+    color: #1d2434;
+    background: #9CB6ED;
+}
+
 
 .service .service-img::after {
     position: absolute;
@@ -1461,5 +1491,6 @@ a:focus {
     color: #9CB6ED;
     background: #1d2434;
 }
+
 
 
