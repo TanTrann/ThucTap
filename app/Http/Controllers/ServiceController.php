@@ -49,12 +49,12 @@ public function save_service(Request $Request){
                $data['service_images'] = $new_image;
                DB::table('tbl_service') -> insert($data);
                Session::put('message','Thêm dich vu thành công');
-               return Redirect::to('add-service');
+               return Redirect::to('add-serv');
             }
              $data['service_images'] = '';
           DB::table('tbl_service')->insert($data);
           Session::put('message','Thêm dich vu thành công');
-          return Redirect::to('add-service');
+          return Redirect::to('add-serv');
 
       	
     }
@@ -73,7 +73,7 @@ public function all_service (){
          $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->update(['service_status'=>1]);
         Session::put('message','Ẩn dịch vụ');
-        return Redirect::to('all-service');
+        return Redirect::to('all-serv');
 
     }
 
@@ -81,7 +81,7 @@ public function all_service (){
          $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->update(['service_status'=>0]);
         Session::put('message','Hiện dịch vụ');
-        return Redirect::to('all-service');
+        return Redirect::to('all-serv');
     }
 
      public function edit_service($service_id){
@@ -100,13 +100,13 @@ public function all_service (){
 
         DB::table('tbl_service')->where('service_id',$service_id)->update($data);
         Session::put('message','Cập nhật dịch vụ thành công');
-        return Redirect::to('all-service');
+        return Redirect::to('all-serv');
     }
     public function delete_service($service_id){
         $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->delete();
         Session::put('message','Xóa dịch vụ thành công');
-        return Redirect::to('all-service');
+        return Redirect::to('all-serv');
     }
 }
 

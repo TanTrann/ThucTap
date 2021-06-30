@@ -241,20 +241,20 @@
               </ul>
             </div>
           </li>
-          
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#service" aria-expanded="false" aria-controls="service">
+            <a class="nav-link" data-toggle="collapse" href="#serv" aria-expanded="false" aria-controls="bra">
               <i class="mdi mdi mdi-cellphone menu-icon"></i>
               <span class="menu-title">Dịch vụ khác</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="service">
+            <div class="collapse" id="serv">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-service')}}">Liệt kê</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-service')}}">Thêm</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-serv')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-serv')}}">Thêm</a></li>
               </ul>
             </div>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#cart" aria-expanded="false" aria-controls="cart">
               <i class="mdi mdi mdi-cart menu-icon"></i>

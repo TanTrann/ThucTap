@@ -41,7 +41,7 @@ public function save_call_service(Request $Request){
 
       		DB::table('tbl_call_service')->insert($data);
       		Session::put('message','Thêm dịch vụ thoại thành công');
-      		return Redirect::to('add-data-service');
+      		return Redirect::to('add-call-service');
     }
 public function all_call_service (){
         $this->AuthLogin();
@@ -78,9 +78,10 @@ public function all_call_service (){
     public function update_call_service(Request $request,$call_service_id){
         $this->AuthLogin();
         $data = array();
-        $data['call_service_name'] = $request->call_service_name;     
-        $data['call_service_desc'] = $request->call_service_desc;
-        $data['call_service_status'] = $request->call_service_status;
+        $data['call_service_name'] = $request->call_service_name; 
+        $data['call_service_price'] = $request->call_service_price;    
+        $data['call_service_content'] = $request->call_service_content;
+
         DB::table('tbl_call_service')->where('call_service_id',$call_service_id)->update($data);
         Session::put('message','Cập nhật dịch vụ thoại thành công');
         return Redirect::to('all-call-service');

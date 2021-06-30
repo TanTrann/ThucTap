@@ -80,7 +80,7 @@ public function all_data_service (){
         $data = array();
         $data['data_service_name'] = $request->data_service_name;     
         $data['data_service_content'] = $request->data_service_content;
-        
+        $data['data_service_price'] = $request->data_service_price;
         DB::table('tbl_data_service')->where('data_service_id',$data_service_id)->update($data);
         Session::put('message','Cập nhật dịch vụ data  thành công');
         return Redirect::to('all-data-service');

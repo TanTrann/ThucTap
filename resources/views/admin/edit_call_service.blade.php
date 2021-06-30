@@ -7,7 +7,7 @@
                 <!-- Basic Form Inputs card start -->
                 <div class="card">
                     <div class="card-header">
-                        <h4>Chỉnh sửa gói cước data</h4>
+                        <h4>Chỉnh sửa gói cước thoại </h4>
                         <span> <?php
                              $message = Session::get('message');
                             if ($message){
@@ -24,15 +24,15 @@
 
                         </div>
                         <div class="card-body table-responsive">
-                            @foreach($edit_data_service as $key => $edit_value)
+                            @foreach($edit_call_service as $key => $edit_value)
                            
-                            <form action="{{URL::to('/update-data-service/'.$edit_value->data_service_id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{URL::to('/update-call-service/'.$edit_value->call_service_id)}}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field()}}
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Tên dịch vụ</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" 
-                                        value="{{$edit_value->data_service_name}}" name="data_service_name">
+                                        value="{{$edit_value->call_service_name}}" name="call_service_name">
                                     </div>
                                 </div>
                                            <!--  <div class="form-group row">
@@ -45,7 +45,7 @@
                                     <label class="col-sm-2 col-form-label">Giá tiền</label>
                                     <div class="col-sm-10">
                                     <input type="text"class="form-control"
-                                        name="data_service_price" value="{{$edit_value->data_service_price}}"></input>
+                                        name="call_service_price" value="{{$edit_value->call_service_price}}"></input>
                                     </div>
                                 </div>    
 
@@ -56,12 +56,12 @@
                                    <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Chi tiết dịch vụ</label>
                                                 <div class="col-sm-10">
-                                                    <textarea rows="8" class="form-control" name="data_service_content">{{$edit_value->data_service_content}}</textarea>
+                                                    <textarea rows="8" class="form-control" name="call_service_content">{{$edit_value->call_service_content}}</textarea>
                                                 </div>
                                     </div>
                                     
 
-                                    <button  class="btn btn-primary mr-2" style="float: right;"  name="save-data-service">Cập nhật</button>
+                                    <button  class="btn btn-primary mr-2" style="float: right;"  name="save-call-service">Cập nhật</button>
                             </form> 
                             @endforeach                                                                         
                         </div>
