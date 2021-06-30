@@ -168,14 +168,125 @@
                 </div>
 </div>
         <!-- Service End -->
-
+         <!-- product list -->
+   <div class="product">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sản phẩm mới nhất</h2>
+            </div>
+            <div class="row" id="best-products">
+                <div class="new-product" >
+                    <div class="product-card" >
+                        <div class="product-card-img">
+                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
+                           
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat btn-hover btn-shop-now">Xem thêm</button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-cart-add'></i>
+                                </button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                            </div>
+                            <div class="product-card-name">
+                                JBL Quantum 400
+                            </div>
+                            <div class="product-card-price">
+                                <span><del>$300</del></span>
+                                <span class="curr-price">$200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
+                           
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat btn-hover btn-shop-now">Chi tiết</button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-cart-add'></i>
+                                </button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                            </div>
+                            <div class="product-card-name">
+                                JBL Quantum 400
+                            </div>
+                            <div class="product-card-price">
+                                <span><del>$300</del></span>
+                                <span class="curr-price">$200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
+                           
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat btn-hover btn-shop-now">Chi tiết</button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-cart-add'></i>
+                                </button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                            </div>
+                            <div class="product-card-name">
+                                JBL Quantum 400
+                            </div>
+                            <div class="product-card-price">
+                                <span><del>$300</del></span>
+                                <span class="curr-price">$200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
+                           
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <button class="btn-flat btn-hover btn-shop-now">Chi tiết</button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-cart-add'></i>
+                                </button>
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                            </div>
+                            <div class="product-card-name">
+                                JBL Quantum 400
+                            </div>
+                            <div class="product-card-price">
+                                <span><del>$300</del></span>
+                                <span class="curr-price">$200</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="./products.html" class=" btn-hover">Xem thêm</a>
+            </div>
+        </div>
+</div>
+    <!-- end product list -->
 
         <!-- Pricing Start -->
         <div class="price">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Our Best Pricing</p>
-                    <h2>We Provide Best Price in the City</h2>
+                    <p></p>
+                    <h2>Sim điện thoại</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -311,6 +422,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="section-footer">
+                <a href="./products.html" class=" btn-hover">Xem thêm</a>
             </div>
         </div>
         <!-- Pricing End -->

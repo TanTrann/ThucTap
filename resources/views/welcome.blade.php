@@ -8,7 +8,7 @@
         <meta content="Free Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="{{asset('public/frontend/img/favicon.ico')}}" rel="icon">
+        <link href="{{asset('public/backend/images/favicon.png')}}" rel="icon">
 
         <!-- Google Font -->
         <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap')}}" rel="stylesheet">
@@ -19,7 +19,7 @@
         <link href="{{asset('public/frontend/lib/animate/animate.min.css')}}" rel="stylesheet">
         <link href="{{asset('public/frontend/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('public/frontend/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-        
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- Template Stylesheet -->
         <link href="{{asset('public/frontend/css/style.css')}}" rel="stylesheet">
@@ -156,6 +156,7 @@
 
         <!-- Template Javascript -->
         <script src="{{asset('public/frontend/js/main.js')}}"></script>
-        
+        <script src="{{asset('public/frontend/js/app.js')}}"></script>
+        <script src="{{asset('public/frontend/js/index.js')}}"></script>
     </body>
 </html>
