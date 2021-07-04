@@ -77,15 +77,24 @@ a:focus {
 }
 
 .top-bar .top-bar-left {
+    
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
 .top-bar .top-bar-right {
+    padding-top: 15px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    ;
+}
+.top-bar-right a{
+    color: white;
+}
+.top-bar-right a:hover{
+    color: #9CB6ED;
 }
 
 .top-bar .text {

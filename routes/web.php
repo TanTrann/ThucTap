@@ -104,3 +104,11 @@ Route::get('/product','App\Http\Controllers\productController@product');
 
 //frontend + brand
 Route::get('/show-brand-home','App\Http\Controllers\BrandController@show_brand_home');
+
+
+//checkout
+Route::get('/dang-nhap','App\Http\Controllers\CheckoutController@login_checkout');
+Route::post('/add-customer','App\Http\Controllers\CheckoutController@add_customer');
+Route::post('/login-customer','App\Http\Controllers\CheckoutController@login_customer');
+Route::get('/checkout','App\Http\Controllers\CheckoutController@checkout');
+Route::get('/logout-checkout','App\Http\Controllers\CheckoutController@logout_checkout');
