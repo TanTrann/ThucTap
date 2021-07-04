@@ -7,11 +7,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Giới thiệu</h2>
+                        <h2>Tài khoản</h2>
                     </div>
                     <div class="col-12">
                         <a href="">Trang chủ</a>
-                        <a href="">Giới thiệu</a>
+                        <a href="">Tài khoản</a>
                     </div>
                 </div>
             </div>

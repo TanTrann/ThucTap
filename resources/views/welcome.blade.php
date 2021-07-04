@@ -44,11 +44,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="top-bar-right">
-                            <li>
-                                
-                            </li>
-                            <!-- Dang nhap -->
-                            <li>
+                           <!-- DANG KI -->
+                          
+                           <!-- END DANG KI -->
+                              <!--  DANG NHAP -->
+                            
                                  @php
                                     $customer_id = Session::get('customer_id');
                                     if($customer_id!=NULL){ 
@@ -80,12 +80,13 @@
                                     <?php
                                 }else{
                                    ?>
-                                   <a href="{{URL::to('/dang-nhap')}}"><i class="fa fa-lock"></i> Đăng nhập</a>
+                                   <a href="{{URL::to('/dang-nhap')}}"style="padding-right: 20px"><i class="fa fa-lock"></i> Đăng nhập</a>
+                                   <a href="{{URL::to('/dang-nhap')}}"  > Đăng ký</a>
                                    <?php 
                                }
                                ?>
                             </a>
-                            </li>
+                            <!-- END DANG NHAP -->
                             </div>
                         </div>
                     </div>

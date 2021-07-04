@@ -96,6 +96,9 @@ a:focus {
 .top-bar-right a:hover{
     color: #9CB6ED;
 }
+.li {
+    list-style:none;
+}
 
 .top-bar .text {
     display: flex;
