@@ -49,32 +49,6 @@
                 </div>  
             </div>
         </div>
-        <!-- About Start -->
-        <div class="about">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-5 col-md-6">
-                        <div class="about-img">
-                            <img src="public/frontend/img/about.jpg" alt="Image">
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-6">
-                        <div class="section-header text-left">
-                            <p>Gioi thieu mobifone</p>
-                            <h2>Lịch sử hình thành</h2>
-                        </div>
-                        <div class="about-text">
-                            <p>
-                                MobiFone được thành lập ngày 16/04/1993 với tên gọi ban đầu là Công ty thông tin di động. Ngày 01/12/2014, Công ty được chuyển đổi thành Tổng công ty Viễn thông MobiFone, trực thuộc Bộ Thông tin và Truyền thông, kinh doanh trong các lĩnh vực: dịch vụ viễn thông truyền thống, VAS, Data, Internet & truyền hình IPTV/cable TV, sản phẩm khách hàng doanh nghiệp, dịch vụ công nghệ thông tin, bán lẻ và phân phối và đầu tư nước ngoài.
-                            </p>
-                            
-                            <a class="btn" href="{{url("gioi-thieu")}}">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
 
 
         <!-- Service Start -->
@@ -166,8 +140,38 @@
 
                         </div>
                 </div>
-</div>
+</div></div>
         <!-- Service End -->
+        
+
+        <!-- About Start -->
+        <div class="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                            <img src="public/frontend/img/about.jpg" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-6">
+                        <div class="section-header text-left">
+                            <p>Gioi thieu mobifone</p>
+                            <h2>Lịch sử hình thành</h2>
+                        </div>
+                        <div class="about-text">
+                            <p>
+                                MobiFone được thành lập ngày 16/04/1993 với tên gọi ban đầu là Công ty thông tin di động. Ngày 01/12/2014, Công ty được chuyển đổi thành Tổng công ty Viễn thông MobiFone, trực thuộc Bộ Thông tin và Truyền thông, kinh doanh trong các lĩnh vực: dịch vụ viễn thông truyền thống, VAS, Data, Internet & truyền hình IPTV/cable TV, sản phẩm khách hàng doanh nghiệp, dịch vụ công nghệ thông tin, bán lẻ và phân phối và đầu tư nước ngoài.
+                            </p>
+                            
+                            <a class="btn" href="{{url("gioi-thieu")}}">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
          <!-- product list -->
    <div class="product">
         <div class="container">
@@ -175,34 +179,14 @@
                 <h2>Sản phẩm mới nhất</h2>
             </div>
             <div class="row" id="best-products">
-                <div class="new-product" >
+
+                <div class="new-product owl-carousel service-carousel" >
+                @foreach($all_product as $key =>$pro)
                     <div class="product-card" >
+                  
                         <div class="product-card-img">
-                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
-                           
-                        </div>
-                        <div class="product-card-info">
-                            <div class="product-btn">
-                                <button class="btn-flat btn-hover btn-shop-now">Xem thêm</button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-cart-add'></i>
-                                </button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-heart'></i>
-                                </button>
-                            </div>
-                            <div class="product-card-name">
-                                JBL Quantum 400
-                            </div>
-                            <div class="product-card-price">
-                                <span><del>$300</del></span>
-                                <span class="curr-price">$200</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-img">
-                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
+                        
+                        <img src="public/uploads/products/{{$pro->product_images}}">>
                            
                         </div>
                         <div class="product-card-info">
@@ -215,67 +199,26 @@
                                     <i class='bx bxs-heart'></i>
                                 </button>
                             </div>
+                          
                             <div class="product-card-name">
-                                JBL Quantum 400
+                            {{$pro ->product_name}}
                             </div>
                             <div class="product-card-price">
                                 <span><del>$300</del></span>
-                                <span class="curr-price">$200</span>
+                                <span class="curr-price">{{ number_format($pro->product_price,0,',','.') }}vnd </span>
                             </div>
+                          
                         </div>
+                       
                     </div>
-                    <div class="product-card">
-                        <div class="product-card-img">
-                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
-                           
-                        </div>
-                        <div class="product-card-info">
-                            <div class="product-btn">
-                                <button class="btn-flat btn-hover btn-shop-now">Chi tiết</button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-cart-add'></i>
-                                </button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-heart'></i>
-                                </button>
-                            </div>
-                            <div class="product-card-name">
-                                JBL Quantum 400
-                            </div>
-                            <div class="product-card-price">
-                                <span><del>$300</del></span>
-                                <span class="curr-price">$200</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-card-img">
-                            <img src="public/frontend/img/JBL_Quantum_400_Product Image_Hero 02.png" alt="">
-                           
-                        </div>
-                        <div class="product-card-info">
-                            <div class="product-btn">
-                                <button class="btn-flat btn-hover btn-shop-now">Chi tiết</button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-cart-add'></i>
-                                </button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-heart'></i>
-                                </button>
-                            </div>
-                            <div class="product-card-name">
-                                JBL Quantum 400
-                            </div>
-                            <div class="product-card-price">
-                                <span><del>$300</del></span>
-                                <span class="curr-price">$200</span>
-                            </div>
-                        </div>
+                    @endforeach
+                    
+                    
                     </div>
                 </div>
             </div>
             <div class="section-footer">
-                <a href="./products.html" class=" btn-hover">Xem thêm</a>
+                <a href="{{URL('/product')}}" class=" btn-hover">Xem thêm</a>
             </div>
         </div>
 </div>

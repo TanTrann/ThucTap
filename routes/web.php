@@ -96,3 +96,11 @@ Route::get('/delete-call-service/{call_service_id}','App\Http\Controllers\CallSe
 Route::get('/unactive-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@unactive_call_service');
 Route::get('/active-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@active_call_service');
 
+//frontend + product
+
+Route::get('/product','App\Http\Controllers\productController@product');
+
+
+
+//frontend + brand
+Route::get('/show-brand-home','App\Http\Controllers\BrandController@show_brand_home');

@@ -74,7 +74,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sản phẩm</a>
                             <div class="dropdown-menu">
                                 <a href="blog.html" class="dropdown-item">Sim</a>
-                                <a href="single.html" class="dropdown-item">Thiết bị di dộng</a>
+                                <a href="{{URL('/product')}}" class="dropdown-item">Thiết bị di dộng</a>
                             </div>
                         </div>
                         <a href="{{url('/team.html')}}" class="nav-item nav-link">Tin tức</a>

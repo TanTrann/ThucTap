@@ -83,4 +83,7 @@ public function all_brand (){
         Session::put('message','Xóa thương thành công');
         return Redirect::to('all-brand');
     }
+
+    //end admin
+
 }
