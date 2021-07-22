@@ -96,11 +96,30 @@ Route::get('/delete-call-service/{call_service_id}','App\Http\Controllers\CallSe
 Route::get('/unactive-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@unactive_call_service');
 Route::get('/active-call-service/{call_service_id}','App\Http\Controllers\CallServiceController@active_call_service');
 
+//backend + sim
+Route::get('/add-sim','App\Http\Controllers\SimController@add_sim');
+Route::get('/all-sim','App\Http\Controllers\SimController@all_sim');
+Route::get('/edit-sim/{sim_id}','App\Http\Controllers\SimController@edit_sim');
+Route::post('/save-sim','App\Http\Controllers\SimController@save_sim');
+Route::post('/update-sim/{sim_id}','App\Http\Controllers\SimController@update_sim');
+Route::get('/delete-sim/{sim_id}','App\Http\Controllers\SimController@delete_sim');
+
+Route::get('/unactive-sim/{sim_id}','App\Http\Controllers\SimController@unactive_sim');
+Route::get('/active-sim/{sim_id}','App\Http\Controllers\SimController@active_sim');
+
+
+
+
+
 //frontend + product
 
 Route::get('/product','App\Http\Controllers\productController@product');
 
 
+Route::get('/sim-list','App\Http\Controllers\SimController@sim');
+
+
+Route::post('/quickviewsim','App\Http\Controllers\SimController@quickviewsim');
 
 //frontend + brand
 Route::get('/show-brand-home','App\Http\Controllers\BrandController@show_brand_home');
@@ -108,7 +127,42 @@ Route::get('/show-brand-home','App\Http\Controllers\BrandController@show_brand_h
 
 //checkout
 Route::get('/dang-nhap','App\Http\Controllers\CheckoutController@login_checkout');
+
+Route::get('/dang-ky','App\Http\Controllers\CheckoutController@register');
 Route::post('/add-customer','App\Http\Controllers\CheckoutController@add_customer');
 Route::post('/login-customer','App\Http\Controllers\CheckoutController@login_customer');
 Route::get('/checkout','App\Http\Controllers\CheckoutController@checkout');
 Route::get('/logout-checkout','App\Http\Controllers\CheckoutController@logout_checkout');
+
+//Banner
+Route::get('/manage-slider','App\Http\Controllers\SliderController@manage_slider');
+Route::get('/add-slider','App\Http\Controllers\SliderController@add_slider');
+Route::get('/delete-slide/{slide_id}','App\Http\Controllers\SliderController@delete_slide');
+Route::post('/insert-slider','App\Http\Controllers\SliderController@insert_slider');
+Route::get('/unactive-slide/{slide_id}','App\Http\Controllers\SliderController@unactive_slide');
+Route::get('/active-slide/{slide_id}','App\Http\Controllers\SliderController@active_slide');
+
+
+// chi tiet sp
+Route::get('/chi-tiet/{product_id}','App\Http\Controllers\ProductController@details_product');
+Route::get('/danh-muc-san-pham/{category_id}','App\Http\Controllers\CategoryController@show_category_home');
+Route::get('/thuong-hieu-san-pham/{brand_id}','App\Http\Controllers\BrandController@show_brand_home');
+
+
+//Cart
+Route::post('/update-cart-quantity','App\Http\Controllers\CartController@update_cart_quantity');
+Route::post('/update-cart','App\Http\Controllers\CartController@update_cart');
+Route::post('/save-cart','App\Http\Controllers\CartController@save_cart');
+Route::post('/add-cart-ajax','App\Http\Controllers\CartController@add_cart_ajax');
+Route::post('/add-cart-ajax-sim','App\Http\Controllers\CartController@add_cart_ajax_sim');
+Route::get('/show-cart','App\Http\Controllers\CartController@show_cart');
+Route::get('/gio-hang','App\Http\Controllers\CartController@gio_hang');
+Route::get('/delete-to-cart/{rowId}','App\Http\Controllers\CartController@delete_to_cart');
+Route::get('/del-product/{session_id}','App\Http\Controllers\CartController@delete_product');
+Route::get('/del-all-product','App\Http\Controllers\CartController@delete_all_product');
+
+
+
+Route::post('/confirm-order','App\Http\Controllers\CheckoutController@confirm_order');
+Route::post('/order-place','App\Http\Controllers\CheckoutController@order_place');
+

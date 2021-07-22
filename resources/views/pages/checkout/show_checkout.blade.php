@@ -1,31 +1,30 @@
-@section('content')
 @extends('welcome')
+@section('content')
+
 
 
 <!-- Page Header Start -->
-        <div class="page-header">
+<div class="page-header">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Giỏ hàng</h2>
+                        <h2>Thanh toán</h2>
                     </div>
                     <div class="col-12">
                         <a href="">Trang chủ</a>
-                        <a href="">Giỏ hàng</a>
+                        <a href="">Thanh toán</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Page Header End -->
 
-
-
-        <section id="cart_items">
+<section id="cart_items">
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
 				  <li><a href="{{URL::to('/')}}">Trang chủ</a></li>
-				  <li class="active"> >Thanh toán giỏ hàng</li>
+				  <li class="active">Thanh toán giỏ hàng</li>
 				</ol>
 			</div>
 
@@ -88,7 +87,17 @@
 						</div>
 					</div>
 					<div class="col-sm-12 clearfix">
+						  @if(session()->has('message'))
+			                    <div class="alert alert-success">
+			                        {!! session()->get('message') !!}
+			                    </div>
+			                @elseif(session()->has('error'))
+			                     <div class="alert alert-danger">
+			                        {!! session()->get('error') !!}
+			                    </div>
+			                @endif
 						<div class="table-responsive cart_info">
+
 							<form action="{{url('/update-cart')}}" method="POST">
 								@csrf
 							<table class="table table-condensed">
@@ -115,7 +124,7 @@
 
 									<tr>
 										<td class="cart_product">
-											<img src="{{asset('public/uploads/product/'.$cart['product_image'])}}" width="90" alt="{{$cart['product_name']}}" />
+											<img src="{{asset('public/uploads/products/'.$cart['product_image'])}}" width="90" alt="{{$cart['product_name']}}" />
 										</td>
 										<td class="cart_description">
 											<h4><a href=""></a></h4>
@@ -195,7 +204,34 @@
 										</li>
 										@endif
 
-										
+										@if(Session::get('fee'))
+										<li>	
+											<a class="cart_quantity_delete" href="{{url('/del-fee')}}"><i class="fa fa-times"></i></a>
+
+											Phí vận chuyển <span>{{number_format(Session::get('fee'),0,',','.')}}đ</span></li> 
+											<?php $total_after_fee = $total + Session::get('fee'); ?>
+										@endif 
+										<li>Tổng còn:
+										@php 
+											if(Session::get('fee') && !Session::get('coupon')){
+												$total_after = $total_after_fee;
+												echo number_format($total_after,0,',','.').'vnđ';
+
+											}elseif(!Session::get('fee') && Session::get('coupon')){
+												$total_after = $total_after_coupon;
+												echo number_format($total_after,0,',','.').'vnđ';
+											}elseif(Session::get('fee') && Session::get('coupon')){
+												$total_after = $total_after_coupon;
+												$total_after = $total_after + Session::get('fee');
+												echo number_format($total_after,0,',','.').'vnđ';
+											}elseif(!Session::get('fee') && !Session::get('coupon')){
+												$total_after = $total;
+												echo number_format($total_after,0,',','.').'vnđ';
+											}
+
+										@endphp
+									
+										</li>
 										
 									</td>
 									</tr>
@@ -239,8 +275,5 @@
 			
 		</div>
 	</section> <!--/#cart_items-->
-
-
-
 
 @endsection

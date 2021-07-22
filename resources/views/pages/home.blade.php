@@ -5,50 +5,35 @@
         <!-- Slide Start -->
         <div class="hero">
                 <div class="row">
-                    <div id="mycarousel" class="carousel slide" data-ride="carousel" style="width: 90%;">
-
-                        <!--Cho hiện thị chỉ số nếu muốn-->
-                        <ol class="carousel-indicators">
-                            <li data-target="#mycarousel" data-slide-to="1" class="" style="width: 100%;"></li>
-                            <li data-target="#mycarousel" data-slide-to="2" class="" style="width: 100%"></li>
-                            <li data-target="#mycarousel" data-slide-to="3" class="" style="width: 100%"></li>
-
-                        </ol>
-                        <!--Hết tạo chỉ số-->
-
-                    <!--Các slide bên trong carousel-inner-->
-                    <div class="carousel-inner">
-
-                        <!--Slide 1 thiết lập hiện thị đầu tiên .active-->
-                        <div class="carousel-item active">
-                            <img class="" src="public\frontend\img\picture1.png" style="width: 100%">
-                            <!--Cho thêm hiện thị thông tin-->
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5></h5>
-                                <p></p>
-                            </div>
-                        </div>
-
-                        <!--Slide 2-->
-                        <div class="carousel-item">
-                            <img class="" src="public\frontend\img\picture2.png" style="width: 100%">
-                        </div>
-                        <!--Slide 3-->
-                        <div class="carousel-item">
-                            <img class="" src="public\frontend\img\picture3.png" style="width: 100%">
-                        </div>
+                    <!-- Thẻ Chứa Slideshow -->
+                    <div class="slideshow-container">
+                    <!-- Kết hợp hình ảnh và nội dung cho mội phần tử trong slideshow-->
+                 
+                        @foreach($slider as $key => $slide)
+                         
+                         
+                    <div class="mySlides">
+                        
+                        <img alt="{{$slide->slider_desc}}" src="{{asset('public/uploads/slider/'.$slide->slider_image)}}" style="height: 500px; width:100%" >
+                       
+                        
                     </div>
-                    
 
-
-                    <!--Cho thêm khiển chuyển slide trước, sau nếu muốn-->
-                        <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span></a>
-                        <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
-                    <!--Hết tạo điều khiển chuyển Slide--> 
-        
-                </div>  
+                            @endforeach
+                    <!-- Nút điều khiển mũi tên-->
+                    <i class="prev" onclick="plusSlides(-1)">❮</i>
+                    <i class="next" onclick="plusSlides(1)">❯</i>
+                    </div>
+                    <br>
+                    </div>      
             </div>
-        </div>
+            <!-- Nút tròn điều khiển slideshow-->
+            <div class="dot-class" style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        
 
 
         <!-- Service Start -->
@@ -127,7 +112,8 @@
                                                         padding-bottom: 110px;">          
                                                         <h2 class="name">{{$serv->service_name}}</h2>     
                                                      {{--    <p>{!!$serv->service_content!!}</p> --}}
-                                                            <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}"  name="chi-tiet" > 
+                                                            <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}"  name="chi-tiet" >
+                                                             
                                                             </form>
                                             </div>
                                         </div>
@@ -155,7 +141,7 @@
                     </div>
                     <div class="col-lg-7 col-md-6">
                         <div class="section-header text-left">
-                            <p>Gioi thieu mobifone</p>
+                            <p>Giới thiệu mobifone</p>
                             <h2>Lịch sử hình thành</h2>
                         </div>
                         <div class="about-text">
@@ -178,39 +164,57 @@
             <div class="section-header">
                 <h2>Sản phẩm mới nhất</h2>
             </div>
-            <div class="row" id="best-products">
+            <div class="row" id="new-products">
 
                 <div class="new-product owl-carousel service-carousel" >
-                @foreach($all_product as $key =>$pro)
+                @foreach($all_phone as $key =>$phone)
                     <div class="product-card" >
-                  
+                    <form>
+                                    @csrf
+                    <input type="hidden" value="{{$phone->product_id}}" class="cart_product_id_{{$phone->product_id}}">
+
+<input type="hidden" id="wishlist_productname{{$phone->product_id}}" value="{{$phone->product_name}}" class="cart_product_name_{{$phone->product_id}}">
+
+<input type="hidden" value="{{$phone->product_quantity}}" class="cart_product_quantity_{{$phone->product_id}}">
+
+<input type="hidden" value="{{$phone->product_images}}" class="cart_product_image_{{$phone->product_id}}">
+
+<input type="hidden" id="wishlist_productprice{{$phone->product_id}}" value="{{number_format($phone->product_price,0,',','.')}}VNĐ">
+
+<input type="hidden" value="{{$phone->product_price}}" class="cart_product_price_{{$phone->product_id}}">
+
+<input type="hidden" value="1" class="cart_product_qty_{{$phone->product_id}}">
                         <div class="product-card-img">
                         
-                        <img src="public/uploads/products/{{$pro->product_images}}">>
+                        <img src="public/uploads/products/{{$phone->product_images}}">
                            
                         </div>
                         <div class="product-card-info">
                             <div class="product-btn">
-                                <button class="btn-flat btn-hover btn-shop-now">Chi tiết</button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-cart-add'></i>
-                                </button>
+                                <button class="btn-flat btn-hover btn-shop-now"><a href="{{URL::to('/chi-tiet/'.$phone->product_id)}}">Chi tiết </a></button>
+                                <input type="button" class="btn-flat btn-hover btn-cart-add add-to-cart" data-id_product="{{$phone->product_id}}" name="add-to-cart" value="Mua ngay">
+                                    
+                                </input>
+
                                 <button class="btn-flat btn-hover btn-cart-add">
                                     <i class='bx bxs-heart'></i>
                                 </button>
                             </div>
-                          
+                           
+
+                                       
                             <div class="product-card-name">
-                            {{$pro ->product_name}}
+                            {{$phone ->product_name}}
                             </div>
                             <div class="product-card-price">
                                 <span><del>$300</del></span>
-                                <span class="curr-price">{{ number_format($pro->product_price,0,',','.') }}vnd </span>
+                                <span class="curr-price">{{ number_format($phone->product_price,0,',','.') }}vnd </span>
                             </div>
                           
                         </div>
                        
                     </div>
+                                    </form>
                     @endforeach
                     
                     
@@ -231,143 +235,30 @@
                     <p></p>
                     <h2>Sim điện thoại</h2>
                 </div>
+            <form action="">
+                @csrf
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="sim-list">
+                    @foreach($all_sim as $key =>$sim)
                         <div class="price-item">
                             <div class="price-img">
-                                <img src="img/price-1.jpg" alt="Image">
+                                <img src="public/frontend/img/sim.png" alt="Image">
                             </div>
                             <div class="price-text">
-                                <h2>Hair Cut</h2>
-                                <h3>$9.99</h3>
+                                <h2> {{$sim ->product_name}}</h2>
+                                <h3>{{number_format($sim->product_price,0,',','.') }} vnd</h3>
+                                <input type="button" data-toggle="modal" data-target="#xemnhanhsim"  value="Chi tiết" class="btn btn-default xemnhanhsim" data-id_sim="{{$sim->product_id}}" name="add-to-cart">
                             </div>
                         </div>
+                        
+                        @endforeach
                     </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-2.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Hair Wash</h2>
-                                <h3>$10.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-3.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Hair Color</h2>
-                                <h3>$11.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-4.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Hair Shave</h2>
-                                <h3>$12.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-5.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Hair Straight</h2>
-                                <h3>$13.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-6.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Facial</h2>
-                                <h3>$14.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-7.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Shampoo</h2>
-                                <h3>$15.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-8.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Beard Trim</h2>
-                                <h3>$16.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-9.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Beard Shave</h2>
-                                <h3>$17.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-10.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Wedding Cut</h2>
-                                <h3>$18.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-11.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Clean Up</h2>
-                                <h3>$19.99</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="price-item">
-                            <div class="price-img">
-                                <img src="img/price-12.jpg" alt="Image">
-                            </div>
-                            <div class="price-text">
-                                <h2>Massage</h2>
-                                <h3>$20.99</h3>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
+                </form>
             </div>
             <div class="section-footer">
-                <a href="./products.html" class=" btn-hover">Xem thêm</a>
+                <a href="{{URL('/sim-list')}}" class=" btn-hover">Xem thêm</a>
             </div>
         </div>
         <!-- Pricing End -->
@@ -624,6 +515,79 @@
             </div>
         </div>
         <!-- Blog End -->
+<!-- Modal xem nhanh-->
+<div class="modal fade" id="xemnhanhsim" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog modal-lg"  role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title sim_quickview_title" id="">
+                                                   Số sim: 
+                                                        <span id="sim_quickview_title"></span>
+                                                        
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <style type="text/css">
+                                                        span#sim_quickview_content img {
+                                                            width: 100%;
+                                                        }
 
+                                                        @media screen and (min-width: 768px) {
+                                                            .modal-dialog {
+                                                              width: 700px; /* New width for default modal */
+                                                            }
+                                                            .modal-sm {
+                                                              width: 350px; /* New width for small modal */
+                                                            }
+                                                        }
+                                                        
+                                                        @media screen and (min-width: 992px) {
+                                                            .modal-lg {
+                                                              width: 1200px; /* New width for large modal */
+                                                            }
+                                                        }
+                                                    </style>
+                                                    <div class="row">
+                                                    <div class="col-md-5">
+                                                            <span id="product_quickview_image"><img src="public/frontend/img/sim.png" alt="Image" style="width: 316px;"></span>
+                                                            <span id="product_quickview_gallery"></span>
+                                                        </div>
+                                                        <form>
+                                                            @csrf
+                                                            <div id="sim_quickview_value"></div>
+                                                        <div class="col-md-13" style="padding-left: 10px;">
+                                                            <h2><span id="sim_quickview_title"></span></h2>
+                                                            <p>Mã ID: <span id="sim_quickview_id"></span></p>
+                                                            <p style="font-size: 20px; color: brown;font-weight: bold;">Giá sản phẩm : <span id="sim_quickview_price"></span></p>
+                                
+                                                                
+                                                             
+                                                            </span>
+                                                            <h4 style="font-size: 20px; color: brown;font-weight: bold;">Mô tả sản phẩm</h4>
+                                                            <hr>
+                                                            <p><span id="sim_quickview_desc"></span></p>
+                                                         
+                                                            
+                                                            <div id="sim_quickview_button"></div>
+                                                            <div id="beforesend_quickview"></div>
+                                                        </div>
+                                                        </form>
+
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                    <button type="button" class="btn btn-default redirect-cart">Đi tới giỏ hàng</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div> 
+                      <ul class="pagination pagination-sm m-t-none m-b-none">
+                    
+                      </ul>
 
 @endsection

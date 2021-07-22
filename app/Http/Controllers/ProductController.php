@@ -7,6 +7,7 @@ use DB;
 use App\http\Requests;
 use Session;
 use Illuminate\support\facades\redirect;
+use App\Product;
 session_start();
 
 class ProductController extends Controller
@@ -142,7 +143,28 @@ public function all_product (){
         
 				$all_product = DB::table('tbl_product')->where('product_status','0')->orderby('product_id','desc')->limit(4)->get();
 
-    	return view ('pages.product')->with('category',$cate_product)->with('brand',$brand_product)->with('all_product',$all_product);
+    	return view ('pages.product.product_list')->with('category',$cate_product)->with('brand',$brand_product)->with('all_product',$all_product);
     }
     
+
+    public function details_product($product_id){
+        $cate_product = DB::table('tbl_category')->where('category_status','0')->orderby('category_id','desc')->get(); 
+            $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
+        $details_product = DB::table('tbl_product')
+             ->join('tbl_category','tbl_category.category_id','=','tbl_product.category_id')
+             ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id') 
+             ->where('tbl_product.product_id',$product_id)->get();  
+    
+        foreach ($details_product as $key => $value) {
+          $category_id = $value ->category_id;
+        }
+    
+        $related_product = DB::table('tbl_product')
+             ->join('tbl_category','tbl_category.category_id','=','tbl_product.category_id')
+             ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id') 
+             ->where('tbl_category.category_id',$category_id)->wherenotin('tbl_product.product_id',[$product_id])->limit(4)->get();  
+    
+    return view('pages.product.product_details')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product)->with('relate',$related_product);
+    }
 }
+
