@@ -98,8 +98,8 @@
         </div>
         <!-- Top Bar End -->
 
-          <!-- Nav Bar Start -->
-          <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+         <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
                 <a href="{{url('/')}}" class="navbar-brand"><img src="public/frontend/img/logo.png" alt="logopage"></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -123,6 +123,17 @@
                         
                         <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
                         <a href="{{url::to('/daugia-list')}}" class="nav-item nav-link">Đấu giá</a>
+                        <div class="">
+                        <form action="{{URL::to('/tim-kiem')}}" method="POST">
+                            {{csrf_field()}}
+                        <div class="search_box pull-right" style="margin-top: -22px;margin-bottom: -39px;">
+                            <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
+                            <input type="submit" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm" style="margin-top: 26px;height: 29px;">
+                        </div>
+                        </form>
+                    
+
+                    </div>
                      
                     </div>
                 </div>
