@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2021 at 08:18 AM
+-- Generation Time: Aug 04, 2021 at 09:14 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -196,8 +196,10 @@ CREATE TABLE `tbl_comment` (
 --
 
 INSERT INTO `tbl_comment` (`comment_id`, `comment`, `comment_name`, `comment_date`, `comment_product_id`, `comment_parent_comment`, `comment_status`) VALUES
-(7, 'San pham tot qua', 'Tan', '2021-07-30 12:50:46', 17, 0, 0),
-(8, 'Cam on ban', 'ADMIN', '2021-07-30 12:50:55', 17, 7, 0);
+(9, 'Sản phẩm rất tốt', 'Tân', '2021-08-04 07:09:03', 34, 0, 0),
+(10, 'sp DEP', 'abc', '2021-08-04 07:04:46', 33, 0, 0),
+(11, '123', 'ADMIN', '2021-08-04 07:06:44', 33, 10, 0),
+(12, '123', 'ADMIN', '2021-08-04 07:08:52', 34, 9, 0);
 
 -- --------------------------------------------------------
 
@@ -444,7 +446,8 @@ INSERT INTO `tbl_rating` (`rating_id`, `product_id`, `rating`) VALUES
 (49, 16, 4),
 (50, 17, 5),
 (51, 17, 3),
-(52, 28, 3);
+(52, 28, 3),
+(53, 34, 3);
 
 -- --------------------------------------------------------
 
@@ -722,7 +725,7 @@ ALTER TABLE `tbl_category`
 -- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_customers`
@@ -776,7 +779,7 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
-  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `tbl_service`
