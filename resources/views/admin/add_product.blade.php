@@ -23,6 +23,10 @@
                       <input type="text" class="form-control" id="exampleInputName1" name="product_name">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Hình ảnh</label>
+                              <input type="file" class="form-control" name="product_images">
+                            </div>
+                    <div class="form-group">
                       <label for="exampleInputEmail3">Số lượng</label>
                       <input type="text" class="form-control" id="exampleInputEmail3" name="product_quantity" >
                     </div>
@@ -30,10 +34,7 @@
                       <label for="exampleInputEmail3">Giá tiền</label>
                       <input type="text" class="form-control" id="exampleInputEmail3" name="product_price" >
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Hình ảnh</label>
-                              <input type="file" class="form-control" name="product_images">
-                            </div>
+                   
                     <div class="form-group">
                      <div class="form-group">
                       <label for="exampleTextarea1">Tóm tắt sản phẩm</label>

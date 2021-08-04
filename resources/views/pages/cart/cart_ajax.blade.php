@@ -168,19 +168,7 @@
 					
 
 				</form>
-					@if(Session::get('cart'))
-					<tr><td>
-
-							<form method="POST" action="{{url('/check-coupon')}}">
-								@csrf
-									<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"><br>
-								
-	                          		<input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
-	                          	
-                          		</form>
-                          	</td>
-					</tr>
-					@endif
+					
 
 				</table>
 

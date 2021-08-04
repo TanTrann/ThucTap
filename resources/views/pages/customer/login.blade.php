@@ -34,10 +34,10 @@
 							</div>
 							@endif
 						<h2>Đăng nhập tài khoản</h2>
-						<form action="{{URL::to('/login-customer')}}" method="POST">
+						<form action="{{URL::to('/login-customer')}}" class="form-login" method="POST">
 							{{csrf_field()}}
-							<input type="text" name="email_account" placeholder="Tài khoản" />
-							<input type="password" name="password_account" placeholder="Password" />
+							<input type="text" class="email_account" name="email_account" placeholder="Tài khoản" />
+							<input type="password" class="password_account" name="password_account" placeholder="Password" />
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Ghi nhớ đăng nhập
@@ -45,7 +45,7 @@
 							<span>
 								<a href="{{url('/quen-mat-khau')}}">Quên mật khẩu</a>
 							</span>
-							<button type="submit" class="btn btn-default">Đăng nhập</button>
+							<button type="submit" class="btn btn-default dangnhap">Đăng nhập</button>
 
 						</form>
 						

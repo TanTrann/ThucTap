@@ -91,8 +91,8 @@ class CategoryController extends Controller
     //end admin 
      
     public function show_category_home($category_id){
-            $cate_product = DB::table('tbl_category')->where('category_status','0')->orderby('category_id','desc')->get(); 
-            $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
+            $cate_product = DB::table('tbl_category')->where('category_status','0')->orderby('category_id','asc')->get(); 
+            $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','asc')->get(); 
             $category_name = DB::table('tbl_category')->where('tbl_category.category_id', $category_id)->limit(1)->get();
             $category_by_id = DB::table('tbl_product')->join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')->where('tbl_product.category_id',$category_id)->get();
             

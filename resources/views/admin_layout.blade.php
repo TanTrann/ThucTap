@@ -5,6 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <title>Mobifone Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('public/backend/vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -17,6 +18,7 @@
   <link rel="stylesheet" href="{{asset('public/backend/css/style.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('public/backend/images/favicon.png')}}" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
   <div class="container-scroller">
@@ -202,19 +204,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#sim" aria-expanded="false" aria-controls="sim">
-              <i class="mdi mdi mdi-view-list menu-icon"></i>
-              <span class="menu-title">Sim dien thoai</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="sim">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-sim')}}">Liệt kê</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-sim')}}">Thêm</a></li>
-              </ul>
-            </div>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#cate" aria-expanded="false" aria-controls="cate">
               <i class="mdi mdi-clipboard-text  menu-icon"></i>
@@ -284,12 +274,12 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#cart" aria-expanded="false" aria-controls="cart">
               <i class="mdi mdi mdi-cart menu-icon"></i>
-              <span class="menu-title">Giỏ hàng</span>
+              <span class="menu-title">Đơn hàng</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="cart">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/manage-order')}}">Liệt kê</a></li>
                 
               </ul>
             </div>
@@ -302,16 +292,38 @@
             </a>
             <div class="collapse" id="a">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Liệt kê</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Thêm</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-daugia')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-daugia')}}">Thêm</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/list-daugia')}}">Tình trạng đấu giá</a></li>
               </ul>
             </div>
           </li>
-          
-          
-         
-
-
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tt" aria-expanded="false" aria-controls="tt">
+              <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+              <span class="menu-title">Tin Tức</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tt">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-news')}}">Liệt kê</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/add-news')}}">Thêm</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#cmt" aria-expanded="false" aria-controls="cmt">
+              <i class="mdi mdi-comment-account  menu-icon"></i>
+              <span class="menu-title">Bình luận</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="cmt">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL('/all-comment')}}">Liệt kê bình luận</a></li>
+                
+              </ul>
+            </div>
+          </li>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="documentation/documentation.html">
@@ -356,7 +368,7 @@
 
 
   <script src="{{asset('public\backend\ckeditor\ckeditor.js')}}" type="text/javascript"></script>
-
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <script  type="text/javascript">
        // Replace the <textarea id="editor1"> with a CKEditor
        // instance, using default configuration.
@@ -372,6 +384,136 @@
    CKEDITOR.replace('ckeditor7'); 
      
     
+</script>
+<script type="text/javascript">
+    $('.comment_duyet_btn').click(function(){
+        var comment_status = $(this).data('comment_status');
+
+        var comment_id = $(this).data('comment_id');
+        var comment_product_id = $(this).attr('id');
+        if(comment_status==0){
+            var alert = 'Thay đổi thành duyệt thành công';
+        }else{
+            var alert = 'Thay đổi thành không duyệt thành công';
+        }
+          $.ajax({
+                url:"{{url('/allow-comment')}}",
+                method:"POST",
+
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{comment_status:comment_status,comment_id:comment_id,comment_product_id:comment_product_id},
+                success:function(data){
+                    location.reload();
+                   $('#notify_comment').html('<span class="text text-alert">'+alert+'</span>');
+
+                }
+            });
+
+
+    });
+    $('.btn-reply-comment').click(function(){
+        var comment_id = $(this).data('comment_id');
+
+        var comment = $('.reply_comment_'+comment_id).val();
+
+        
+
+        var comment_product_id = $(this).data('product_id');
+
+        
+        // alert(comment);
+        // alert(comment_id);
+        // alert(comment_product_id);
+        
+          $.ajax({
+                url:"{{url('/reply-comment')}}",
+                method:"POST",
+
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{comment:comment,comment_id:comment_id,comment_product_id:comment_product_id},
+                success:function(data){
+                    $('.reply_comment_'+comment_id).val('');
+                   $('#notify_comment').html('<span class="text text-alert">Trả lời bình luận thành công</span>');
+
+                }
+            });
+
+
+    });
+</script>
+<!-- Xu li don hang -->
+<script type="text/javascript">
+    $('.order_details').change(function(){
+        var order_status = $(this).val();
+        var order_id = $(this).children(":selected").attr("id");
+        var _token = $('input[name="_token"]').val();
+
+        //lay ra so luong
+        quantity = [];
+        $("input[name='product_sales_quantity']").each(function(){
+            quantity.push($(this).val());
+        });
+        //lay ra product id
+        order_product_id = [];
+        $("input[name='order_product_id']").each(function(){
+            order_product_id.push($(this).val());
+        });
+        j = 0;
+        for(i=0;i<order_product_id.length;i++){
+            //so luong khach dat
+            var order_qty = $('.order_qty_' + order_product_id[i]).val();
+            //so luong ton kho
+            var order_qty_storage = $('.order_qty_storage_' + order_product_id[i]).val();
+
+            if(parseInt(order_qty)>parseInt(order_qty_storage)){
+                j = j + 1;
+                if(j==1){
+                    alert('Số lượng bán trong kho không đủ');
+                }
+                $('.color_qty_'+order_product_id[i]).css('background','#000');
+            }
+        }
+        
+        if(j==0){
+          
+                $.ajax({
+                        url : '{{url('/update-order-qty')}}',
+                            method: 'POST',
+                            data:{_token:_token, order_status:order_status ,order_id:order_id ,quantity:quantity, order_product_id:order_product_id},
+                            success:function(data){
+                                alert('Thay đổi tình trạng đơn hàng thành công');
+                                location.reload();
+                            }
+                });
+            
+        }
+
+    });
+</script>
+<!-- Xu li don hang -->
+<script type="text/javascript">
+   
+  $( function() {
+    $( "#date_start" ).datepicker({
+        prevText:"Tháng trước",
+        nextText:"Tháng sau",
+        dateFormat:"dd/mm/yy",
+        dayNamesMin: [ "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" ],
+        duration: "slow"
+    });
+    $( "#date_end" ).datepicker({
+        prevText:"Tháng trước",
+        nextText:"Tháng sau",
+        dateFormat:"dd/mm/yy",
+        dayNamesMin: [ "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật" ],
+        duration: "slow"
+    });
+  } );
+ 
 </script>
 </body>
 

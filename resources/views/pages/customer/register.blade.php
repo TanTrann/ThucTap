@@ -23,13 +23,14 @@
 <div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Đăng ký</h2>
-						<form action="{{URL::to('/add-customer')}}" method="POST">
+						<form action="{{URL::to('/add-customer')}}" class="form-register" method="POST">
 							{{ csrf_field() }}
 							<input type="text" name="customer_name" placeholder="Họ và tên"/>
 							<input type="email" name="customer_email" placeholder="Địa chỉ email"/>
 							<input type="password" name="customer_password" placeholder="Mật khẩu"/>
 							<input type="text" name="customer_phone" placeholder="Phone"/>
-							<button type="submit" class="btn btn-default">Đăng ký</button>
+                            <br>
+							<button type="submit" class="btn btn-default dangky">Đăng ký</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>

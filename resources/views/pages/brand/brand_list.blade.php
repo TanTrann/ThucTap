@@ -12,13 +12,26 @@
             </div>
                 
 						
-                       
-            <div class="row" id="best-products">
+     
 
-                <div class="all-product" >
+             
                 @foreach($brand_by_id as $key => $product)
                     <div class="product-card" >
-                  
+                    <form>
+                                    @csrf
+                                    <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
+
+<input type="hidden" id="wishlist_productname{{$product->product_id}}" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
+
+<input type="hidden" value="{{$product->product_quantity}}" class="cart_product_quantity_{{$product->product_id}}">
+
+<input type="hidden" value="{{$product->product_images}}" class="cart_product_image_{{$product->product_id}}">
+
+<input type="hidden" id="wishlist_productprice{{$product->product_id}}" value="{{number_format($product->product_price,0,',','.')}}VNĐ">
+
+<input type="hidden" value="{{$product->product_price}}" class="cart_product_price_{{$product->product_id}}">
+
+<input type="hidden" value="1" class="cart_product_qty_{{$product->product_id}}">
                         <div class="product-card-img" style="width:300px;height:300px">
                         
                         <img src="{{URL::to('public/uploads/products/'.$product->product_images)}}" alt="" />
@@ -27,9 +40,9 @@
                         <div class="product-card-info">
                             <div class="product-btn">
                             <button class="btn-flat btn-hover btn-shop-now"><a href="{{URL::to('/chi-tiet/'.$product->product_id)}}">Chi tiết </a></button>
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                    <i class='bx bxs-cart-add'></i>
-                                </button>
+                              
+                                <input type="button" class="btn-flat btn-hover btn-cart-add add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart" value="Mua ngay">
+                               
                                 <button class="btn-flat btn-hover btn-cart-add">
                                     <i class='bx bxs-heart'></i>
                                 </button>
@@ -39,7 +52,7 @@
                             {{$product->product_name}}
                             </div>
                             <div class="product-card-price">
-                                <span><del>$300</del></span>
+                             
                                 <span class="curr-price">{{number_format($product->product_price).' '.'VND'}}</span>
                             </div>
                           
@@ -49,8 +62,7 @@
                     @endforeach
                     
                     
-                    </div>
-                </div>
+              
                
             </div>
             

@@ -17,7 +17,7 @@ Route::get('/','App\Http\Controllers\HomeController@index');
 
 //gioithieu
 Route::get('/gioi-thieu','App\Http\Controllers\AboutController@about');
-
+Route::post('/tim-kiem','App\Http\Controllers\HomeController@search');
 
 //admin
 Route::get('/admin','App\Http\Controllers\AdminController@index');
@@ -106,9 +106,32 @@ Route::get('/delete-sim/{sim_id}','App\Http\Controllers\SimController@delete_sim
 
 Route::get('/unactive-sim/{sim_id}','App\Http\Controllers\SimController@unactive_sim');
 Route::get('/active-sim/{sim_id}','App\Http\Controllers\SimController@active_sim');
+//backend+commet
+Route::get('/all-comment','App\Http\Controllers\ProductController@list_comment');
 
+//backend + dau gia
+Route::get('/add-daugia','App\Http\Controllers\daugiaController@add_daugia');
+Route::get('/all-daugia','App\Http\Controllers\daugiaController@all_daugia');
+Route::get('/edit-daugia/{daugia_id}','App\Http\Controllers\daugiaController@edit_daugia');
+Route::post('/save-daugia','App\Http\Controllers\daugiaController@save_daugia');
+Route::post('/update-daugia/{daugia_id}','App\Http\Controllers\daugiaController@update_daugia');
+Route::get('/delete-daugia/{daugia_id}','App\Http\Controllers\daugiaController@delete_daugia');
 
+Route::get('/unactive-daugia/{daugia_id}','App\Http\Controllers\daugiaController@unactive_daugia');
+Route::get('/active-daugia/{daugia_id}','App\Http\Controllers\daugiaController@active_daugia');
+Route::get('/list-daugia','App\Http\Controllers\daugiaController@list_daugia');
+Route::get('ds-kh/{daugia_id}','App\Http\Controllers\daugiaController@ds_kh');
+Route::get('chi-tiet-khach-hang/{order_daugia_id}','App\Http\Controllers\daugiaController@chi_tiet_khach_hang');
 
+//Order
+Route::get('/view-history-order/{order_code}','App\Http\Controllers\OrderController@view_history_order');
+Route::get('/history','App\Http\Controllers\OrderController@history');
+Route::get('/delete-order/{order_code}','App\Http\Controllers\OrderController@order_code');
+Route::get('/print-order/{checkout_code}','App\Http\Controllers\OrderController@print_order');
+Route::get('/manage-order','App\Http\Controllers\OrderController@manage_order');
+Route::get('/view-order/{order_code}','App\Http\Controllers\OrderController@view_order');
+Route::post('/update-order-qty','App\Http\Controllers\OrderController@update_order_qty');
+Route::post('/update-qty','App\Http\Controllers\OrderController@update_qty');
 
 
 //frontend + product
@@ -120,6 +143,19 @@ Route::get('/sim-list','App\Http\Controllers\SimController@sim');
 
 
 Route::post('/quickviewsim','App\Http\Controllers\SimController@quickviewsim');
+Route::post('/quickviewservice','App\Http\Controllers\ServiceController@quickviewservice');
+Route::post('/quickviewdataservice','App\Http\Controllers\DataServiceController@quickviewdataservice');
+Route::post('/quickviewcallservice','App\Http\Controllers\CallServiceController@quickviewcallservice');
+Route::post('/quickviewdaugia','App\Http\Controllers\daugiaController@quickviewdaugia');
+Route::post('/insert-rating','App\Http\Controllers\ProductController@insert_rating');
+
+//commmet
+
+Route::post('/load-comment','App\Http\Controllers\ProductController@load_comment');
+Route::post('/send-comment','App\Http\Controllers\ProductController@send_comment');
+Route::post('/allow-comment','App\Http\Controllers\ProductController@allow_comment');
+Route::post('/reply-comment','App\Http\Controllers\ProductController@reply_comment');
+Route::get('/delete-comment/{comment_id}','App\Http\Controllers\ProductController@delete_comment');
 
 //frontend + brand
 Route::get('/show-brand-home','App\Http\Controllers\BrandController@show_brand_home');
@@ -128,7 +164,7 @@ Route::get('/show-brand-home','App\Http\Controllers\BrandController@show_brand_h
 //checkout
 Route::get('/dang-nhap','App\Http\Controllers\CheckoutController@login_checkout');
 
-Route::get('/dang-ky','App\Http\Controllers\CheckoutController@register');
+Route::get('/dang-ky','App\Http\Controllers\CheckoutController@dang_ky');
 Route::post('/add-customer','App\Http\Controllers\CheckoutController@add_customer');
 Route::post('/login-customer','App\Http\Controllers\CheckoutController@login_customer');
 Route::get('/checkout','App\Http\Controllers\CheckoutController@checkout');
@@ -142,7 +178,15 @@ Route::post('/insert-slider','App\Http\Controllers\SliderController@insert_slide
 Route::get('/unactive-slide/{slide_id}','App\Http\Controllers\SliderController@unactive_slide');
 Route::get('/active-slide/{slide_id}','App\Http\Controllers\SliderController@active_slide');
 
-
+//News
+Route::get('/all-news','App\Http\Controllers\NewsController@all_news');
+Route::get('/add-news','App\Http\Controllers\NewsController@add_news');
+Route::get('/delete-news/{slide_id}','App\Http\Controllers\NewsController@delete_news');
+Route::get('/unactive-news/{slide_id}','App\Http\Controllers\NewsController@unactive_news');
+Route::get('/active-news/{slide_id}','App\Http\Controllers\NewsController@active_news');
+Route::post('/save-news','App\Http\Controllers\newsController@save_news');
+Route::get('/edit-news/{news_id}','App\Http\Controllers\newsController@edit_news');
+Route::post('/update-news/{news_id}','App\Http\Controllers\newsController@update_news');
 // chi tiet sp
 Route::get('/chi-tiet/{product_id}','App\Http\Controllers\ProductController@details_product');
 Route::get('/danh-muc-san-pham/{category_id}','App\Http\Controllers\CategoryController@show_category_home');
@@ -166,3 +210,16 @@ Route::get('/del-all-product','App\Http\Controllers\CartController@delete_all_pr
 Route::post('/confirm-order','App\Http\Controllers\CheckoutController@confirm_order');
 Route::post('/order-place','App\Http\Controllers\CheckoutController@order_place');
 
+
+// frontend+news
+Route::get('/news-list','App\Http\Controllers\NewsController@news_list');
+Route::get('/chitiettintuc/{news_id}','App\Http\Controllers\NewsController@news_details');
+
+
+//frontend+daugia
+Route::get('/daugia-list','App\Http\Controllers\DaugiaController@daugia_list');
+Route::get('/chi-tiet-dau-gia/{daugia_id}','App\Http\Controllers\DauGiaController@chi_tiet_dau_gia');
+Route::post('/insert-daugia','App\Http\Controllers\DauGiaController@insert_daugia');
+
+Route::post('/luu-daugia/{daugia_id}','App\Http\Controllers\DauGiaController@luu_daugia');
+Route::get('/done-daugia','App\Http\Controllers\DaugiaController@done_daugia');

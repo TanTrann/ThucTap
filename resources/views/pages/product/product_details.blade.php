@@ -14,6 +14,7 @@
         <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap')}}" rel="stylesheet">
 
         <!-- CSS Libraries -->
+        
         <link href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css')}}" rel="stylesheet">
         <link href="{{asset('public/frontend/lib/animate/animate.min.css')}}" rel="stylesheet">
@@ -87,6 +88,7 @@
                                }
                                ?>
                             </a>
+                            <a href="{{URL::to('/gio-hang')}}"style="padding-left: 20px"><i class="fa fa-shopping-cart" ></i>Gio hang</a>
                             <!-- END DANG NHAP -->
                             </div>
                         </div>
@@ -96,10 +98,10 @@
         </div>
         <!-- Top Bar End -->
 
-        <!-- Nav Bar Start -->
-        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+          <!-- Nav Bar Start -->
+          <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="{{url('/')}}" class="navbar-brand"><img src="../public/frontend/img/logo.png" alt="logopage"></a>
+                <a href="{{url('/')}}" class="navbar-brand"><img src="public/frontend/img/logo.png" alt="logopage"></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -112,13 +114,15 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sản phẩm</a>
                             <div class="dropdown-menu">
-                                <a href="blog.html" class="dropdown-item">Sim</a>
-                                <a href="{{URL('/product')}}" class="dropdown-item">Thiết bị di dộng</a>
+                            @foreach($category as $key => $cate)
+                               <a href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}" class="dropdown-item">{{$cate->category_name}}</a></li>
+                               @endforeach
                             </div>
                         </div>
-                        <a href="{{url('/team.html')}}" class="nav-item nav-link">Tin tức</a>
-                        <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                        <a href="{{url('/news-list')}}" class="nav-item nav-link">Tin tức</a>
                         
+                        <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                        <a href="{{url::to('/daugia-list')}}" class="nav-item nav-link">Đấu giá</a>
                      
                     </div>
                 </div>
@@ -190,15 +194,11 @@
 <input type="hidden" value="1" class="cart_product_qty_{{$value->product_id}}">
 								<span>
  
-									<span>{{number_format(($value->product_price)).'vnd'}}</span>
-								
+									<span class="product-card-price"> <h2>{{number_format(($value->product_price)).'vnd'}}</h2></span>
 									<input type="hidden" name="product_qty" type="number" min="1" value="1" />
 									<input name="productid_hidden" type="hidden"  value="{{$value->product_id}}" />
-									<input type="button" value="Thêm giỏ hàng" class="btn btn-primary btn-sm add-to-cart" data-id_product="{{$value->product_id}}" name="add-to-cart">
-                                    <button type="submit" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Thêm vào giỏ
-									</button>
+									<input type="button" value="Thêm giỏ hàng" class="add-cart add-to-cart" data-id_product="{{$value->product_id}}" name="add-to-cart">
+                                   
                                     </form>
 								</span>
 								</form>
@@ -206,97 +206,139 @@
 								<p><b>Điều kiện:</b> Mới 100%</p>
 								<p><b>Thương hiệu:</b> {{($value->brand_name)}}</p>
 								<p><b>Danh mục:</b> {{($value->category_name)}}</p>
+                                <input name="productid_hidden" type="hidden"  value="{{$value->product_id}}" />
+                               
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->
 @endforeach
-						<div class="category-tab shop-details-tab"><!--category-tab-->
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#details" data-toggle="tab">Mô tả</a></li>
-								<li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
-							
-								<li ><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
-							</ul>
-						</div>
-						<div class="tab-content">
-							<div class="tab-pane fade active in" id="details" >
-								<p>{!!$value->product_desc!!}</p>
-								
-							</div>
-							
-							<div class="tab-pane fade" id="companyprofile" >
-								<p>{!!$value->product_content!!}</p>
-								
 						
-							</div>
+					
+					<div class="col-sm-10 tab" style="margin-left: 135px;">
+  <button class="tablinks " onclick="openCity(event, 'London')">Tóm tắt sản phẩm</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Chi tiết sản phẩm</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Đánh giá sản phẩm</button>
+</div>
+<div id="London" class="tabcontent col-sm-10" style="margin-left: 135px;">
+  
+{!!$value->product_desc!!}
+</div>
+<div id="Paris" class="tabcontent col-sm-10" style="margin-left: 135px;">
+  
+  {!!$value->product_content!!}
 							
-							<div class="tab-pane fade" id="reviews" >
-								<div class="col-sm-12">
-									<ul>
-										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-									</ul>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><b>Write Your Review</b></p>
-									
-									<form action="#">
-										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
-										</span>
-										<textarea name="" ></textarea>
-										<b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
-										<button type="button" class="btn btn-default pull-right">
-											Submit
-										</button>
-									</form>
-								</div>
-							</div>
-							
-						</div>
-					</div><!--/category-tab-->
-					
+</div>
+<div id="Tokyo" class="tabcontent col-sm-10" style="margin-left: 135px;">
+<div class="col-sm-10">
+<style type="text/css">
+            .style_comment {
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background: #F0F0E9;
+            }
+        </style>
+        <form>
+                @csrf
+            <input type="hidden" name="comment_product_id" class="comment_product_id" value="{{$value->product_id}}">
+                <div id="comment_show"></div>
+        
+        </form>
+        
+                <p><b>Đánh giá sản phẩm</b></p>
+                                    
+                        <form action="#">
+                         
+                        <ul class="list-inline rating"  title="Average Rating" style="display: flex;">
+                                                	<li><p style="font-size: 20px">Đánh giá sao</p></li>
+                                                	@for($count=1; $count<=5; $count++)
+                                                		@php
+	                                                		if($count<=$rating){
+	                                                			$color = 'color:#ffcc00;';
+	                                                		}
+	                                                		else {
+	                                                			$color = 'color:#ccc;';
+	                                                		}
+	                                                	
+                                                		@endphp
+                                                	
+                                                    <li title="star_rating" id="{{$value->product_id}}-{{$count}}" data-index="{{$count}}"  data-product_id="{{$value->product_id}}" data-rating="{{$rating}}" class="rating" style="cursor:pointer; {{$color}} font-size:30px;margin-top: -8px;padding: 0 10px;">&#9733;</li>
+                                                    @endfor
+
+                                                </ul>
+                            <span>
+                                <input style="width:100%;margin-left: 0" type="text" class="comment_name" placeholder="Tên bình luận"/>
+                                    
+                            </span>
+                            <textarea style="width:100%;margin-top: 20px; height: 100px;"  name="comment" class="comment_content" placeholder="Nội dung bình luận"></textarea>
+                            <div id="notify_comment"></div>
+                            
+                            <button type="button" class="btn btn-default pull-right send-comment">
+                                Gửi bình luận
+                            </button>
+
+                        </form>
+</div>
+</div>
 
 
 					
-					<div class="recommended_items"><!--recommended_items-->
-						<h2 class="title text-center">Sản phẩm liên quan</h2>
-						
-						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">
-							@foreach($relate as $key => $lienquan)
-									<div class="col-sm-3">
-										<div class="product-image-wrapper">
-											 <div class="single-products">
-		                                        <div class="productinfo text-center">
-		                                            <img src="{{URL::to('public/uploads/products/'.$lienquan->product_images)}}" alt="" />
-		                                            <h2>{{number_format($lienquan->product_price).' '.'VNĐ'}}</h2>
-		                                            <p>{{$lienquan->product_name}}</p>
-		                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm giỏ hàng</a>
-		                                        </div>
-		                                      
-                                			</div>
-										</div>
-									</div>
-							@endforeach		
+			
+					   <!-- product list -->
+   <div class="product">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sản phẩm liên quan</h2>
+            </div>
+  
 
-								
-								</div>
-									
-							</div>
-							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
-							  </a>
-							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-								<i class="fa fa-angle-right"></i>
-							  </a>			
-						</div>
-					</div><!--/recommended_items-->
-					
+                <div class="new-product owl-carousel service-carousel" >
+                @foreach($relate as $key => $lienquan)
+                    <div class="product-card" >
+                    <form>
+                                    @csrf
+                  
+                        <div class="product-card-img" style="margin-left: 60px;">
+                        
+                        <img src="{{URL::to('public/uploads/products/'.$lienquan->product_images)}}" alt="" />
+                           
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                           
+                                <button class="btn-flat btn-hover btn-shop-now"><a href="{{URL::to('/chi-tiet/'.$lienquan->product_id)}}">Chi tiết </a></button>
+                               
+                                  
+                                </input>
+
+                                <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-heart'></i>
+                                </button>
+                            </div>
+                           
+
+                                       
+                            <div class="product-card-name">
+                            <p>{{$lienquan->product_name}}</p>
+                            </div>
+                            <div class="product-card-price">
+                     
+                                <span class="curr-price">{{number_format($lienquan->product_price).' '.'VNĐ'}}</span>
+                            </div>
+                          
+                        </div>
+                       
+                    </div>
+                                    </form>
+                    @endforeach
+                    
+                    
+                    </div>
+                </div>
+          
+          
+        </div>
+</div>
  <!-- Footer Start -->
  <div class="footer">
             <div class="container">
@@ -370,6 +412,119 @@
         <script src="{{asset('public/frontend/js/slider.js')}}"></script>
         <script src="{{asset('public/frontend/js/sweetalert.min.js')}}"></script> 
         <script type="text/javascript">
+    function remove_background(product_id)
+     {
+      for(var count = 1; count <= 5; count++)
+      {
+       $('#'+product_id+'-'+count).css('color', '#ccc');
+      }
+    }
+    //hover chuột đánh giá sao
+   $(document).on('mouseenter', '.rating', function(){
+      var index = $(this).data("index");
+      var product_id = $(this).data('product_id');
+    // alert(index);
+    // alert(product_id);
+      remove_background(product_id);
+      for(var count = 1; count<=index; count++)
+      {
+       $('#'+product_id+'-'+count).css('color', '#ffcc00');
+      }
+    });
+   //nhả chuột ko đánh giá
+   $(document).on('mouseleave', '.rating', function(){
+      var index = $(this).data("index");
+      var product_id = $(this).data('product_id');
+      var rating = $(this).data("rating");
+      remove_background(product_id);
+      //alert(rating);
+      for(var count = 1; count<=rating; count++)
+      {
+       $('#'+product_id+'-'+count).css('color', '#ffcc00');
+      }
+     });
+
+    //click đánh giá sao
+    $(document).on('click', '.rating', function(){
+          var index = $(this).data("index");
+          var product_id = $(this).data('product_id');
+            var _token = $('input[name="_token"]').val();
+          $.ajax({
+           url:"{{url('insert-rating')}}",
+           method:"POST",
+           data:{index:index, product_id:product_id,_token:_token},
+           success:function(data)
+           {
+            if(data == 'done')
+            {
+                alert("Lỗi đánh giá");
+             
+            }
+            else
+            {
+                alert("Bạn đã đánh giá "+index +" trên 5");
+            }
+           }
+    });
+          
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        load_comment();
+
+        function load_comment(){
+            var product_id = $('.comment_product_id').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+              url:"{{url('/load-comment')}}",
+              method:"POST",
+              data:{product_id:product_id, _token:_token},
+              success:function(data){
+              
+                $('#comment_show').html(data);
+              }
+            });
+        }
+        $('.send-comment').click(function(){
+            var product_id = $('.comment_product_id').val();
+            var comment_name = $('.comment_name').val();
+            var comment_content = $('.comment_content').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+              url:"{{url('/send-comment')}}",
+              method:"POST",
+              data:{product_id:product_id,comment_name:comment_name,comment_content:comment_content, _token:_token},
+              success:function(data){
+                
+                $('#notify_comment').html('<span class="text text-success">Thêm bình luận thành công, bình luận đang chờ duyệt</span>');
+                load_comment();
+                $('#notify_comment').fadeOut(9000);
+                $('.comment_name').val('');
+                $('.comment_content').val('');
+              }
+            });
+        });
+    });
+</script>
+        <script>
+                function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+                }
+        </script>
+        <script type="text/javascript">
+
     
     $('.xemnhanhsim').click(function(){
         var sim_id = $(this).data('id_sim');

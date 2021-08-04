@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CallService;
 use Illuminate\Http\Request;
 use DB;
 use App\http\Requests;
@@ -92,4 +93,16 @@ public function all_call_service (){
         Session::put('message','Xóa dịch vụ thoại thành công');
         return Redirect::to('all-call-service');
     }
+
+    public function quickviewcallservice(Request $request){
+
+        $call_service_id = $request->call_service_id;
+            $serv = CallService::find($call_service_id);
+            $output['call_service_name'] = $serv->call_service_name;
+            $output['call_service_id'] = $serv->call_service_id;
+            $output['call_service_content'] = $serv->call_service_content;
+            echo json_encode($output);
+        
+        
+        }
 }

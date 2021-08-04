@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DataService;
 use Illuminate\Http\Request;
 use DB;
 use App\http\Requests;
 use Session;
 use Illuminate\support\facades\redirect;
+
 session_start();
 
 class DataserviceController extends Controller
@@ -91,5 +93,16 @@ public function all_data_service (){
         Session::put('message','Xóa dịch vụ data thành công');
         return Redirect::to('all-data-service');
     }
+    public function quickviewdataservice(Request $request){
+
+        $data_service_id = $request->data_service_id;
+            $serv = DataService::find($data_service_id);
+            $output['data_service_name'] = $serv->data_service_name;
+            $output['data_service_id'] = $serv->data_service_id;
+            $output['data_service_content'] = $serv->data_service_content;
+            echo json_encode($output);
+        
+        
+        }
 }
 

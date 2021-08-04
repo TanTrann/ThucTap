@@ -28,7 +28,7 @@
                         <div class="card-body">
                             @foreach($edit_product as $key => $edit_value)
                             <h4 class="sub-title"></h4>
-                            <form action="{{URL::to('/update-product/'.$edit_value->product_id)}}" method="post">
+                            <form action="{{URL::to('/update-product/'.$edit_value->product_id)}}" method="post" enctype="multipart/form-data">
                                     {{ csrf_field()}}
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Tên sản phẩm</label>
@@ -57,7 +57,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Hình ảnh sản phẩm</label>
                                     <div class="col-sm-10">
-                                        <input type="file" name="product_image" class="form-control" >
+                                        <input type="file" name="product_images" class="form-control" >
                                         <img src="{{URL::to('public/uploads/products/'.$edit_value->product_images )}}" height="100" width="100">
                                     </div>
                                 </div>

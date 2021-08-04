@@ -7,6 +7,8 @@ use DB;
 use App\http\Requests;
 use Session;
 use Illuminate\support\facades\redirect;
+
+use App\Service;
 session_start();
 
 class serviceController extends Controller
@@ -97,16 +99,42 @@ public function all_service (){
         $data = array();
         $data['service_name'] = $request->service_name;     
         $data['service_content'] = $request->service_content;
-
-        DB::table('tbl_service')->where('service_id',$service_id)->update($data);
-        Session::put('message','Cập nhật dịch vụ thành công');
-        return Redirect::to('all-serv');
+        $get_image = $request->file('service_images');
+        if($get_image){
+              $get_name_image = $get_image->getClientOriginalName();
+              $name_image = current(explode('.', $get_name_image));
+              $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+              $get_image->move('public/uploads/service',$new_image);
+              $data['service_images'] = $new_image;
+              DB::table('tbl_service')->where('service_id', $service_id) -> update($data);
+              Session::put('message','Cập nhật dịch vụ thành công');
+              return Redirect::to('all-serv');
+           }
+           DB::table('tbl_service')->where('service_id', $service_id) -> update($data);
+           Session::put('message','Cap nhat dịch vụ không thành công');
+           return Redirect::to('all-serv');
+       DB::table('tbl_service')->where('service_id',$service_id)->update($data);
+       Session::put('message','Cập nhật dịch vụ thành công');
+       return Redirect::to('all-serv');
     }
     public function delete_service($service_id){
         $this->AuthLogin();
         DB::table('tbl_service')->where('service_id',$service_id)->delete();
         Session::put('message','Xóa dịch vụ thành công');
         return Redirect::to('all-serv');
+    }
+    
+    public function quickviewservice(Request $request){
+
+    $service_id = $request->service_id;
+        $serv = Service::find($service_id);
+        $output['service_name'] = $serv->service_name;
+        $output['service_id'] = $serv->service_id;
+        $output['service_content'] = $serv->service_content;
+        $output['service_images'] = '<p><img width="100%" src="public/uploads/service/'.$serv->service_images.'"></p>';
+        echo json_encode($output);
+    
+
     }
 }
 

@@ -73,7 +73,7 @@
                                                     <i class="fas fa-phone-alt" style="font-size: 50px ; border: 1px solid; padding: 19px"></i>
                                                         <h2 class="name">{{$call_serv->call_service_name}}</h2>    <p>{{ number_format($call_serv->call_service_price,0,',','.') }}vnd  </p>
                                                         {{-- <p>{!!$call_serv->call_service_content!!}</p> --}}
-                                                            <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$call_serv->call_service_id}}"  name="chi-tiet" > 
+                                                        <input type="button" value="Chi tiết" class="chitiet xemnhanhcallservice" data-toggle="modal" data-target="#xemnhanhcallservice" data-id_service="{{$call_serv->call_service_id}}"  name="chi-tiet" name="add-to-cart" > 
                                                             </form>
                                             </div>
                                         </div>
@@ -86,12 +86,12 @@
                                     @foreach($all_data_service as $key => $data_serv)
                                         <div class="service-item">
                                             <div class="service-text">
-                                                <form>
+                                                <form method="POST">
                                                     @csrf           
                                                     <i class="fas fa-rss" style="font-size: 50px ; border: 1px solid; padding: 19px"></i>
                                                         <h2 class="name">{{$data_serv->data_service_name}}</h2>    <p>{{ number_format($data_serv->data_service_price,0,',','.') }}vnd  </p>
                                                       {{--   <p>{!!$data_serv->data_service_content!!}</p> --}}
-                                                            <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$data_serv->data_service_id}}"  name="chi-tiet" > 
+                                                      <input type="button" value="Chi tiết" class="chitiet xemnhanhdataservice" data-toggle="modal" data-target="#xemnhanhdataservice" data-id_service="{{$data_serv->data_service_id}}"  name="chi-tiet" name="add-to-cart" > 
                                                             </form>
                                             </div>
                                         </div>
@@ -104,7 +104,7 @@
                                     @foreach($all_service as $key => $serv)
                                         <div class="service-item">
                                             <div class="service-text">                                                       
-                                               <form>
+                                               <form method="POST">
                                                     @csrf  
                                                     <img src="public/uploads/service/{{ $serv->service_images }}" style="    width: 98px;
                                                         margin-top: 15px;
@@ -112,8 +112,7 @@
                                                         padding-bottom: 110px;">          
                                                         <h2 class="name">{{$serv->service_name}}</h2>     
                                                      {{--    <p>{!!$serv->service_content!!}</p> --}}
-                                                            <input type="button" value="Chi tiết" class="chitiet" data-id_product="{{$serv->service_id}}"  name="chi-tiet" >
-                                                             
+                                                    <input type="button" value="Chi tiết" class="chitiet xemnhanhservice" data-toggle="modal" data-target="#xemnhanhservice" data-id_service="{{$serv->service_id}}"  name="chi-tiet" name="add-to-cart" > 
                                                             </form>
                                             </div>
                                         </div>
@@ -164,7 +163,7 @@
             <div class="section-header">
                 <h2>Sản phẩm mới nhất</h2>
             </div>
-            <div class="row" id="new-products">
+  
 
                 <div class="new-product owl-carousel service-carousel" >
                 @foreach($all_phone as $key =>$phone)
@@ -184,10 +183,11 @@
 <input type="hidden" value="{{$phone->product_price}}" class="cart_product_price_{{$phone->product_id}}">
 
 <input type="hidden" value="1" class="cart_product_qty_{{$phone->product_id}}">
-                        <div class="product-card-img">
-                        
+                        <div class="product-card-img" style="
+    margin-left: 56px;">
+                            <a href="{{URL::to('/chi-tiet/'.$phone->product_id)}}"> 
                         <img src="public/uploads/products/{{$phone->product_images}}">
-                           
+                            </a>
                         </div>
                         <div class="product-card-info">
                             <div class="product-btn">
@@ -207,7 +207,7 @@
                             {{$phone ->product_name}}
                             </div>
                             <div class="product-card-price">
-                                <span><del>$300</del></span>
+                                
                                 <span class="curr-price">{{ number_format($phone->product_price,0,',','.') }}vnd </span>
                             </div>
                           
@@ -220,27 +220,25 @@
                     
                     </div>
                 </div>
-            </div>
-            <div class="section-footer">
-                <a href="{{URL('/product')}}" class=" btn-hover">Xem thêm</a>
-            </div>
+          
+            
         </div>
 </div>
     <!-- end product list -->
 
         <!-- Pricing Start -->
-        <div class="price">
+        <div class="price" style="background-color: #cee6f5;padding:80px;">
             <div class="container">
-                <div class="section-header text-center">
+                <div class="section-header text-center" style="margin-bottom: 45px;">
                     <p></p>
                     <h2>Sim điện thoại</h2>
                 </div>
-            <form action="">
+            <form action="" method="POST">
                 @csrf
                 <div class="row">
                     <div class="sim-list">
                     @foreach($all_sim as $key =>$sim)
-                        <div class="price-item">
+                        <div class="price-item" style="padding: 10px; border-radius: 30px;">
                             <div class="price-img">
                                 <img src="public/frontend/img/sim.png" alt="Image">
                             </div>
@@ -257,259 +255,50 @@
                 </div>
                 </form>
             </div>
-            <div class="section-footer">
-                <a href="{{URL('/sim-list')}}" class=" btn-hover">Xem thêm</a>
+            <div class="section-footer" style="margin-top: 100px">
+                <a href="{{URL('/sim-list')}}" class=" btn-hover" style=" border-radius: 20px;">Xem thêm</a>
             </div>
         </div>
         <!-- Pricing End -->
         
         
-        <!-- Testimonial Start -->
-        <div class="testimonial">
-            <div class="container">
-                <div class="owl-carousel testimonials-carousel">
-                    <div class="testimonial-item">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat. Fusce venenatis at lectus in malesuada. Suspendisse sit amet dolor et odio varius mattis.
-                        </p>
-                        <h2>Client Name</h2>
-                        <h3>Profession</h3>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="img/testimonial-2.jpg" alt="Image">
-                        <p>
-                            Phasellus pellentesque tempus pretium. Quisque in enim sit amet purus venenatis porttitor sed non velit. Vivamus vehicula finibus tortor. Aliquam vehicula molestie pulvinar. Sed varius libero in leo finibus, ac consectetur tortor rutrum.
-                        </p>
-                        <h2>Client Name</h2>
-                        <h3>Profession</h3>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="img/testimonial-3.jpg" alt="Image">
-                        <p>
-                            Sed in lectus eu eros tincidunt cursus. Aliquam eleifend velit nisl. Sed et posuere urna, ut vestibulum massa. Integer quis magna non enim luctus interdum. Phasellus sed eleifend erat. Aliquam ligula ex, semper vel tempor pellentesque, pretium eu nulla.
-                        </p>
-                        <h2>Client Name</h2>
-                        <h3>Profession</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
-
-
-        <!-- Team Start -->
-        <div class="team">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Our Barber Team</p>
-                    <h2>Meet Our Hair Cut Expert Barber</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-1.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Adam Phillips</h2>
-                                <p>Master Barber</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Dylan Adams</h2>
-                                <p>Hair Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Gloria Edwards</h2>
-                                <p>Beard Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Josh Dunn</h2>
-                                <p>Color Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Team End -->
+       
         
-        
-        <!-- Contact Start -->
-        <div class="contact">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-8">
-                            <div class="contact-form">
-                                <div id="success"></div>
-                                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                                    <div class="control-group">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="control-group">
-                                        <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div>
-                                        <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact End -->
+       
 
 
         <!-- Blog Start -->
         <div class="blog">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Latest From Blog</p>
-                    <h2>Learn More from Latest Barber Blog</h2>
+                    
+                    <h2>Tin tức</h2>
                 </div>
                 <div class="owl-carousel blog-carousel">
+                @foreach($all_news as $key => $news)
                     <div class="blog-item">
+                  
                         <div class="blog-img">
-                            <img src="img/blog-1.jpg" alt="Blog">
+                        <img src="public/uploads/news/{{$news->news_images}}">
                         </div>
                         <div class="blog-meta">
                             <i class="fa fa-list-alt"></i>
-                            <a href="">Hair Cut</a>
+                         
                             <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
+                           
                         </div>
                         <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
+                           <h2>{{$news->news_name}}</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                            {!!$news->news_desc!!}
                             </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
+                            <a class="btn" href="{{URL::to('/chitiettintuc/'.$news->news_id)}}">Xem thêm <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-2.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Beard Style</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-3.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Color & Wash</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-4.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Hair Cut</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-5.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Beard Style</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="img/blog-6.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-meta">
-                            <i class="fa fa-list-alt"></i>
-                            <a href="">Color & Wash</a>
-                            <i class="fa fa-calendar-alt"></i>
-                            <p>01-Jan-2045</p>
-                        </div>
-                        <div class="blog-text">
-                            <h2>Lorem ipsum dolor</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                            </p>
-                            <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
+                    @endforeach
+                    
+                   
+                    
                     </div>
                 </div>
             </div>
@@ -590,4 +379,222 @@
                     
                       </ul>
 
+                     <!-- Modal xem nhanh service-->
+<div class="modal fade" id="xemnhanhservice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog modal-lg"  role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title service_quickview_title" id="">
+                                                   Tên dịch vụ:
+                                                        <span id="service_quickview_title"></span>
+                                                        
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <style type="text/css">
+                                                        span#service_quickview_content img {
+                                                            width: 100%;
+                                                        }
+
+                                                        @media screen and (min-width: 768px) {
+                                                            .modal-dialog {
+                                                              width: 700px; /* New width for default modal */
+                                                            }
+                                                            .modal-sm {
+                                                              width: 350px; /* New width for small modal */
+                                                            }
+                                                        }
+                                                        
+                                                        @media screen and (min-width: 992px) {
+                                                            .modal-lg {
+                                                              width: 1200px; /* New width for large modal */
+                                                            }
+                                                        }
+                                                    </style>
+                                                    <div class="row">
+                                                    <div class="col-md-5">
+                                                            <span id="service_quickview_image"></span>
+                                                            <span id="product_quickview_gallery"></span>
+                                                        </div>
+                                                        <form>
+                                                            @csrf
+                                                            <div id="service_quickview_value"></div>
+                                                        <div class="col-md-13" style="padding-left: 10px;position: absolute;">
+                                                            <h2><span id="service_quickview_title"></span></h2>
+                                                            <p>Mã ID: <span id="service_quickview_id"></span></p>
+                                                           
+                                                             
+                                                            </span>
+                                                            <h4 style="font-size: 20px; color: brown;font-weight: bold;">Mô tả dịch vụ</h4>
+                                                            <hr>
+                                                            <p><span id="service_quickview_desc"></span></p>
+                                                         
+                                                            
+                                                            <div id="service_quickview_button"></div>
+                                                            <div id="beforesend_quickview"></div>
+                                                        </div>
+                                                        </form>
+
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                    
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div> 
+                      <ul class="pagination pagination-sm m-t-none m-b-none">
+                    
+                      </ul>
+
+                         <!-- Modal xem nhanh data service-->
+   <div class="modal fade" id="xemnhanhdataservice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog modal-lg"  role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title data_service_quickview_title" id="">
+                                                   Tên dịch vụ:
+                                                        <span id="data_service_quickview_title"></span>
+                                                        
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <style type="text/css">
+                                                        span#data_service_quickview_content img {
+                                                            width: 100%;
+                                                        }
+
+                                                        @media screen and (min-width: 768px) {
+                                                            .modal-dialog {
+                                                              width: 700px; /* New width for default modal */
+                                                            }
+                                                            .modal-sm {
+                                                              width: 350px; /* New width for small modal */
+                                                            }
+                                                        }
+                                                        
+                                                        @media screen and (min-width: 992px) {
+                                                            .modal-lg {
+                                                              width: 1200px; /* New width for large modal */
+                                                            }
+                                                        }
+                                                    </style>
+                                                    <div class="row">
+                                                    <div class="col-md-5">
+                                                            <span id="product_quickview_image"><img src="public/frontend/img/dataservice.png" alt="Image" style="width:275px;"></span>
+                                                            <span id="product_quickview_gallery"></span>
+                                                        </div>
+                                                        <form>
+                                                            @csrf
+                                                            <div id="data_service_quickview_value"></div>
+                                                        <div class="col-md-13" style="padding-left: 10px;position: absolute;">
+                                                            <h2><span id="data_service_quickview_title"></span></h2>
+                                                            <p>Mã ID: <span id="data_service_quickview_id"></span></p>
+                                                           
+                                                             
+                                                            </span>
+                                                            <h4 style="font-size: 20px; color: brown;font-weight: bold;">Mô tả dịch vụ</h4>
+                                                            <hr>
+                                                            <p><span id="data_service_quickview_desc"></span></p>
+                                                         
+                                                            
+                                                            <div id="data_service_quickview_button"></div>
+                                                            <div id="beforesend_quickview"></div>
+                                                        </div>
+                                                        </form>
+
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                    
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div> 
+                      <ul class="pagination pagination-sm m-t-none m-b-none">
+                    
+                      </ul>
+
+                       <!-- Modal xem nhanh data service-->
+ <div class="modal fade" id="xemnhanhcallservice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog modal-lg"  role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title call_service_quickview_title" id="">
+                                                   Tên dịch vụ:
+                                                        <span id="call_service_quickview_title"></span>
+                                                        
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <style type="text/css">
+                                                        span#call_service_quickview_content img {
+                                                            width: 100%;
+                                                        }
+
+                                                        @media screen and (min-width: 768px) {
+                                                            .modal-dialog {
+                                                              width: 700px; /* New width for default modal */
+                                                            }
+                                                            .modal-sm {
+                                                              width: 350px; /* New width for small modal */
+                                                            }
+                                                        }
+                                                        
+                                                        @media screen and (min-width: 992px) {
+                                                            .modal-lg {
+                                                              width: 1200px; /* New width for large modal */
+                                                            }
+                                                        }
+                                                    </style>
+                                                    <div class="row">
+                                                    <div class="col-md-5">
+                                                            <span id="call_service_quickview_image"><img src="public/frontend/img/callservice.png" alt="Image" style="width:275px;"></span>
+                                                            <span id="product_quickview_gallery"></span>
+                                                        </div>
+                                                        <form>
+                                                            @csrf
+                                                            <div id="call_service_quickview_value"></div>
+                                                        <div class="col-md-13" style="padding-left: 10px;position: absolute;">
+                                                            <h2><span id="call_service_quickview_title"></span></h2>
+                                                            <p>Mã ID: <span id="call_service_quickview_id"></span></p>
+                                                           
+                                                             
+                                                            </span>
+                                                            <h4 style="font-size: 20px; color: brown;font-weight: bold;">Mô tả dịch vụ</h4>
+                                                            <hr>
+                                                            <p><span id="call_service_quickview_desc"></span></p>
+                                                         
+                                                            
+                                                            <div id="call_service_quickview_button"></div>
+                                                            <div id="beforesend_quickview"></div>
+                                                        </div>
+                                                        </form>
+
+                                                    </div>
+                                                   
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                    
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div> 
+                      <ul class="pagination pagination-sm m-t-none m-b-none">
+                    
+                      </ul>
 @endsection

@@ -86,8 +86,8 @@ public function all_brand (){
 
     //end admin
     public function show_brand_home($brand_id){
-        $cate_product = DB::table('tbl_category')->where('category_status','0')->orderby('category_id','desc')->get(); 
-        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get(); 
+        $cate_product = DB::table('tbl_category')->where('category_status','0')->orderby('category_id','asc')->get(); 
+        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','asc')->get(); 
 
         $brand_by_id = DB::table('tbl_product')->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')->where('tbl_brand.brand_id',$brand_id)->get();
 

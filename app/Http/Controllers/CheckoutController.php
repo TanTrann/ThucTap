@@ -189,6 +189,14 @@ public function login_checkout(Request $request){
 
   return view('pages.customer.login')->with('category',$cate_product)->with('brand',$brand_product);
 }
+
+public function dang_ky(Request $request){
+  $category = DB::table('tbl_category')->orderby('category_id','desc')->get(); 
+  
+
+  return view('pages.customer.register')->with('category',$category);
+}
+
 public function add_customer(Request $request){
 
  $data = array();
